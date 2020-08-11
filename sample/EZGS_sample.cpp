@@ -2,8 +2,8 @@
 
 int main(int argc, char **argv)
 {
-	System::CreateWindow();
-	System::Destroy();
+    System::CreateWindow();
+    System::Destroy();
 
-	return 0;
+    return 0;
 }

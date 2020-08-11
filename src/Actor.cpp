@@ -8,27 +8,27 @@
 
 namespace ezgs
 {
-	Actor::Actor()
-		:state_(State::EActive)
-	{
-		System::AddActor(this);
-	}
+    Actor::Actor()
+        :state_(State::EActive)
+    {
+        System::AddActor(this);
+    }
 
-	Actor::~Actor()
-	{
-		System::RemoveActor(this);
-	}
+    Actor::~Actor()
+    {
+        System::RemoveActor(this);
+    }
 
-	void Actor::Update(float dt)
-	{
-		if (state_ == State::EActive)
-		{
-			this->UpdateActor(dt);
-		}
-	}
+    void Actor::Update(float dt)
+    {
+        if (state_ == State::EActive)
+        {
+            this->UpdateActor(dt);
+        }
+    }
 
-	void Actor::UpdateActor(float dt)
-	{
+    void Actor::UpdateActor(float dt)
+    {
 
-	}
+    }
 }

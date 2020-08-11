@@ -9,46 +9,46 @@
 
 namespace ezgs
 {		
-	/**
-	 * @brief Actorの状態クラス
-	 */
-	enum class State
-	{
-		EPause,
-		EActive,
-		EDead,
-	};
+    /**
+     * @brief Actorの状態クラス
+     */
+    enum class State
+    {
+        EPause,
+        EActive,
+        EDead,
+    };
 
-	/**
-	 * @brief Actorクラス
-	 */
-	class Actor
-	{
-	public:
-		/**
-		 * @brief システムにActor追加
-		 */
-		Actor();
+    /**
+     * @brief Actorクラス
+     */
+    class Actor
+    {
+    public:
+        /**
+         * @brief システムにActor追加
+         */
+        Actor();
 
-		/**
-		 * @brief システムからActorを削除
-		 */
-		virtual ~Actor();
+        /**
+         * @brief システムからActorを削除
+         */
+        virtual ~Actor();
 
-		/**
-		 * @brief Actor全体の更新
-		 * @return なし
-		 */
-		void Update(float dt);
+        /**
+         * @brief Actor全体の更新
+         * @return なし
+         */
+        void Update(float dt);
 
-		/**
-		 * @brief アクター自身の更新
-		 * @return なし
-		 */
-		virtual void UpdateActor(float dt);
+        /**
+         * @brief アクター自身の更新
+         * @return なし
+         */
+        virtual void UpdateActor(float dt);
 
-	private:
-		// Actorの状態
-		State state_;
-	};
+    private:
+        // Actorの状態
+        State state_;
+    };
 }
