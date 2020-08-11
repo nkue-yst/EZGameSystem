@@ -52,11 +52,31 @@ namespace ezgs
             }
             glGetError();
 
+            ticks_count_ = SDL_GetTicks();
+
             return 0;
+        }
+
+        void CreateVerts()
+        {
+            float vertices[] = {
+                -0.5f,  0.5f,  0.f, 0.f, 0.f,
+                 0.5f,  0.5f,  0.f, 1.f, 0.f,
+                 0.5f, -0.5f,  0.f, 1.f, 1.f,
+                -0.5f, -0.5f,  0.f, 0.f, 1.f
+            };
+
+            unsigned int indices[] = {
+                0, 1, 2,
+                2, 3, 0
+            };
+
+            verts = new VertexArray(vertices, 4, indices, 6);
         }
 
         void Destroy()
         {
+            delete verts;
             SDL_GL_DeleteContext(context);
             SDL_DestroyWindow(window);
             SDL_Quit();

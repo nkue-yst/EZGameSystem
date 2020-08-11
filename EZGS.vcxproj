@@ -16,6 +16,7 @@
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\System.cpp" />
+    <ClCompile Include="src\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGS.hpp" />
@@ -23,6 +24,7 @@
     <ClInclude Include="include\EZGS\Component.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
+    <ClInclude Include="include\EZGS\VertexArray.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

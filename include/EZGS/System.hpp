@@ -7,6 +7,7 @@
 
 #pragma once
 #include <EZGS/Actor.hpp>
+#include <EZGS/VertexArray.hpp>
 #include <vector>
 #include <SDL.h>
 
@@ -20,14 +21,20 @@ namespace ezgs
         // windowに描画するcontext
         static SDL_GLContext context;
 
-        // メインループの更新条件
-        static bool is_running;
+        // Tickカウンター
+        static Uint32 ticks_count_;
 
         // アクター配列
         static std::vector<Actor*> actors;
-        
+
         // 街状態のアクター用配列
         static std::vector<Actor*> waiting_actors;
+
+        // 頂点配列
+        static VertexArray* verts;
+
+        // メインループの更新条件
+        static bool is_running;
 
         // アクターを更新中かどうか
         static bool is_actor_updating;
@@ -37,6 +44,12 @@ namespace ezgs
          * @return 成功時 0、失敗時 1
          */
         int CreateWindow();
+
+        /**
+         * @brief 頂点配列を作成
+         * @return なし
+         */
+        void CreateVerts();
 
         /**
          * @brief 描画システムの終了処理
