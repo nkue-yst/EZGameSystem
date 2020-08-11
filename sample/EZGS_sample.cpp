@@ -1,6 +1,6 @@
 ﻿#include <EZGS.hpp>
 
-int main(int argc, char **args)
+int main(int argc, char **argv)
 {
 	System::CreateWindow();
 	System::Destroy();

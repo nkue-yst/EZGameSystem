@@ -10,7 +10,7 @@ namespace ezgs
 {
     namespace System
     {
-        int System::CreateWindow()
+        int CreateWindow()
         {
             if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
             {
@@ -55,11 +55,19 @@ namespace ezgs
             return 0;
         }
 
-        void System::Destroy()
+        void Destroy()
         {
             SDL_GL_DeleteContext(context);
             SDL_DestroyWindow(window);
             SDL_Quit();
+        }
+
+        void Update()
+        {
+            while (is_running)
+            {
+
+            }
         }
     }
 }

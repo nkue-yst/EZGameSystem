@@ -18,6 +18,9 @@ namespace ezgs
 		// windowに描画するcontext
 		static SDL_GLContext context;
 
+		// メインループの更新条件
+		static bool is_running;
+
 		/**
 		 * @brief 描画システムを初期化、ウィンドウを作成
 		 * @return 成功時 0、失敗時 1
@@ -29,5 +32,11 @@ namespace ezgs
 		 * @return なし
 		 */
 		void Destroy();
+
+		/**
+		 * @brief メインループでの更新
+		 * @return なし
+		 */
+		void Update();
 	}
 }
