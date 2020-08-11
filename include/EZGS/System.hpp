@@ -6,6 +6,8 @@
  */
 
 #pragma once
+#include <EZGS/Actor.hpp>
+#include <vector>
 #include <SDL.h>
 
 namespace ezgs
@@ -20,6 +22,15 @@ namespace ezgs
 
 		// メインループの更新条件
 		static bool is_running;
+
+		// アクター配列
+		static std::vector<Actor*> actors;
+		
+		// 街状態のアクター用配列
+		static std::vector<Actor*> waiting_actors;
+
+		// アクターを更新中かどうか
+		static bool is_actor_updating;
 
 		/**
 		 * @brief 描画システムを初期化、ウィンドウを作成
@@ -38,5 +49,17 @@ namespace ezgs
 		 * @return なし
 		 */
 		void Update();
+
+		/**
+		 * @brief Actorを追加
+		 * @return なし
+		 */
+		void AddActor(Actor* actor);
+
+		/**
+		 * @brief Actorを削除
+		 * @return なし
+		 */
+		void RemoveActor(Actor* actor);
 	}
 }

@@ -6,6 +6,8 @@
  */
 
 #pragma once
+
+#include <EZGS/Actor.hpp>
 #include <EZGS/System.hpp>
 
 using namespace ezgs;

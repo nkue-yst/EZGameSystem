@@ -69,5 +69,30 @@ namespace ezgs
 
             }
         }
+
+        void AddActor(Actor* actor)
+        {
+            if (is_actor_updating)
+                waiting_actors.emplace_back(actor);
+            else
+                actors.emplace_back(actor);
+        }
+
+        void RemoveActor(Actor* actor)
+        {
+            auto iter = std::find(waiting_actors.begin(), waiting_actors.end(), actor);
+            if (iter != waiting_actors.end())
+            {
+                std::iter_swap(iter, waiting_actors.end() - 1);
+                waiting_actors.pop_back();
+            }
+
+            iter = std::find(actors.begin(), actors.end(), actor);
+            if (iter != actors.end())
+            {
+                std::iter_swap(iter, actors.end() - 1);
+                actors.pop_back();
+            }
+        }
     }
 }
