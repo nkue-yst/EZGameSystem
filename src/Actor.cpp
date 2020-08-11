@@ -4,6 +4,7 @@
  */
 
 #include <EZGS/Actor.hpp>
+#include <EZGS/Component.hpp>
 #include <EZGS/System.hpp>
 
 namespace ezgs
@@ -30,5 +31,24 @@ namespace ezgs
     void Actor::UpdateActor(float dt)
     {
 
+    }
+
+    void Actor::AddComponent(Component* component)
+    {
+        int own_order = component->GetUpdateOrder();
+        auto iter = components_.begin();
+        for (; iter != components_.end(); ++iter)
+        {
+            if (own_order < (*iter)->GetUpdateOrder())
+                break;
+        }
+        components_.insert(iter, component);
+    }
+
+    void Actor::RemoveComponent(Component* component)
+    {
+        auto iter = std::find(components_.begin(), components_.end(), component);
+        if (iter != components_.end())
+            components_.erase(iter);
     }
 }

@@ -6,11 +6,12 @@
  */
 
 #pragma once
+#include <vector>
 
 namespace ezgs
 {		
     /**
-     * @brief Actorの状態クラス
+     * @brief アクターの状態クラス
      */
     enum class State
     {
@@ -20,23 +21,23 @@ namespace ezgs
     };
 
     /**
-     * @brief Actorクラス
+     * @brief アクター基底クラス
      */
     class Actor
     {
     public:
         /**
-         * @brief システムにActor追加
+         * @brief システムにアクターを追加
          */
         Actor();
 
         /**
-         * @brief システムからActorを削除
+         * @brief システムからアクターを削除
          */
         virtual ~Actor();
 
         /**
-         * @brief Actor全体の更新
+         * @brief アクター全体の更新
          * @return なし
          */
         void Update(float dt);
@@ -47,8 +48,23 @@ namespace ezgs
          */
         virtual void UpdateActor(float dt);
 
+        /**
+         * @brief アクターにコンポーネントを追加
+         * @return なし
+         */
+        void AddComponent(class Component* component);
+
+        /**
+         * @brief アクターからコンポーネントを削除
+         * @return なし
+         */
+        void RemoveComponent(class Component* component);
+
     private:
-        // Actorの状態
+        // アクターの状態
         State state_;
+
+        // 所有しているコンポーネント配列（更新優先度順）
+        std::vector<class Component*> components_;
     };
 }
