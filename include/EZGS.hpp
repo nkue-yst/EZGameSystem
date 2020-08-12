@@ -2,7 +2,7 @@
  * @file EZGS.hpp
  * @brief include用ヘッダファイル
  * @author Yoshito Nakaue
- * @date 2020/08/10
+ * @date 2020/08/12
  */
 
 #pragma once

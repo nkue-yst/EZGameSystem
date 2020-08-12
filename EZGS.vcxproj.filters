@@ -16,6 +16,9 @@
     <Filter Include="Sample">
       <UniqueIdentifier>{e4796227-b9e6-4387-8313-0f2c162969bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="シェーダー">
+      <UniqueIdentifier>{ff7e12b6-dea4-4ea4-a3bf-1bda28f00771}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\System.cpp">
@@ -62,5 +65,13 @@
     <ClInclude Include="include\EZGS\Shader.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\Simple.vert">
+      <Filter>シェーダー</Filter>
+    </None>
+    <None Include="src\shader\Simple.frag">
+      <Filter>シェーダー</Filter>
+    </None>
   </ItemGroup>
 </Project>

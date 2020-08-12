@@ -1,9 +1,10 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/10
+ * @date 2020/08/13
  */
 
 #include <EZGS/System.hpp>
+#include <EZGS/Math.hpp>
 #include <GL/glew.h>
 
 namespace ezgs
@@ -52,8 +53,29 @@ namespace ezgs
             }
             glGetError();
 
+            /* シェーダー読み込み */
+            if (LoadShader())
+            {
+                SDL_Log("Failed to load shader.");
+                return 1;
+            }
+
+            CreateVerts();
+
             ticks_count_ = SDL_GetTicks();
 
+            return 0;
+        }
+
+        int LoadShader()
+        {
+            shader = new Shader();
+            if (shader->Load("shader/Simple.vert", "shader/Simple.frag"))
+                return 1;
+
+            shader->SetActive();
+            Mat4 simple_view = Mat4::createSimpleView(1920.f, 1080.f);
+            shader->SetMatUniform("view_transform", simple_view);
             return 0;
         }
 
@@ -77,6 +99,8 @@ namespace ezgs
         void Destroy()
         {
             delete verts;
+            shader->Unload();
+            delete shader;
             SDL_GL_DeleteContext(context);
             SDL_DestroyWindow(window);
             SDL_Quit();
@@ -88,6 +112,13 @@ namespace ezgs
             {
 
             }
+        }
+
+        void UnloadData()
+        {
+            /* アクターを破棄 */
+            while (!actors.empty())
+                delete actors.back();
         }
 
         void AddActor(Actor* actor)

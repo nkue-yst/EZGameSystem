@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/12
+ * @date 2020/08/13
  */
 
 #include <EZGS/Shader.hpp>
@@ -43,6 +43,29 @@ namespace ezgs
         }
 
         return 0;
+    }
+
+    void Shader::Unload()
+    {
+        glDeleteProgram(shader_program_);
+        glDeleteShader(id_frag_shader_);
+        glDeleteShader(id_vertex_shader_);
+    }
+
+    void Shader::SetActive()
+    {
+        glUseProgram(shader_program_);
+    }
+
+    void Shader::SetMatUniform(const char* name, const Mat4& mat)
+    {
+        GLuint loc_id = glGetUniformLocation(shader_program_, name);
+        glUniformMatrix4fv(
+            loc_id,
+            1,
+            GL_TRUE,
+            mat.getPointer()
+        );
     }
 
     int Shader::CompileShader(const std::string& file_name, GLenum shader_type, GLuint& out_shader)

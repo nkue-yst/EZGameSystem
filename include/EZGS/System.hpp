@@ -2,11 +2,12 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/08/10
+ * @date 2020/08/13
  */
 
 #pragma once
 #include <EZGS/Actor.hpp>
+#include <EZGS/Shader.hpp>
 #include <EZGS/VertexArray.hpp>
 #include <vector>
 #include <SDL.h>
@@ -30,6 +31,9 @@ namespace ezgs
         // 街状態のアクター用配列
         static std::vector<Actor*> waiting_actors;
 
+        // シェーダープログラム
+        static Shader* shader;
+
         // 頂点配列
         static VertexArray* verts;
 
@@ -37,13 +41,19 @@ namespace ezgs
         static bool is_running;
 
         // アクターを更新中かどうか
-        static bool is_actor_updating;
+        static bool is_actor_updating = false;
 
         /**
          * @brief 描画システムを初期化、ウィンドウを作成
          * @return 成功時 0、失敗時 1
          */
         int CreateWindow();
+
+        /**
+         * @brief シェーダー読み込み
+         * @return 成功時 0、失敗時 1
+         */
+        int LoadShader();
 
         /**
          * @brief 頂点配列を作成
@@ -62,6 +72,12 @@ namespace ezgs
          * @return なし
          */
         void Update();
+
+        /**
+         * @brief データ破棄
+         * @return なし
+         */
+        void UnloadData();
 
         /**
          * @brief Actorを追加

@@ -2,7 +2,7 @@
  * @file Shader.hpp
  * @brief シェーダー管理クラス
  * @author Yoshito Nakaue
- * @date 2020/08/12
+ * @date 2020/08/13
  */
 
 #pragma once
@@ -27,6 +27,26 @@ namespace ezgs
          * @return 成功時 0、 失敗時 1
          */
         int Load(const std::string& vert_name, const std::string& frag_name);
+
+        /**
+         * @brief シェーダープログラムを破棄
+         * @return なし
+         */
+        void Unload();
+
+        /**
+         * @brief アクティブ状態にセットする
+         * @return なし
+         */
+        void SetActive();
+
+        /**
+         * @brief ---
+         * @param name : 行列名
+         * @param mat : 行列
+         * @return なし
+         */
+        void SetMatUniform(const char* name, const class Mat4& mat);
 
     private:
         /**

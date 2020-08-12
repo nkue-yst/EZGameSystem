@@ -28,6 +28,10 @@
     <ClInclude Include="include\EZGS\System.hpp" />
     <ClInclude Include="include\EZGS\VertexArray.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\Simple.frag" />
+    <None Include="src\shader\Simple.vert" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -87,7 +91,8 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y</Command>
+xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)src\shader" "$(OutDir)shader" /i /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -110,7 +115,8 @@ xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y</Command
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y</Command>
+xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)src\shader" "$(OutDir)shader" /i /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
