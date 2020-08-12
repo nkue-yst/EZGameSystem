@@ -15,6 +15,7 @@
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\VertexArray.cpp" />
   </ItemGroup>
@@ -23,6 +24,7 @@
     <ClInclude Include="include\EZGS\Actor.hpp" />
     <ClInclude Include="include\EZGS\Component.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
+    <ClInclude Include="include\EZGS\Shader.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
     <ClInclude Include="include\EZGS\VertexArray.hpp" />
   </ItemGroup>
