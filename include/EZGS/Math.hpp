@@ -189,31 +189,31 @@ namespace ezgs
 		/**
 		 * @brief 行列のポインターを取得
 		 */
-		const float* getPointer() const { return reinterpret_cast<const float*>(&mat[0][0]); }
+		const float* GetPointer() const { return reinterpret_cast<const float*>(&mat[0][0]); }
 
 		/**
 		 * @brief スケール行列作成
 		 */
-		static Mat4 createScale(float x_scale, float y_scale, float z_scale);
-		static Mat4 createScale(float scale) { return createScale(scale, scale, scale); }
+		static Mat4 CreateScale(float x_scale, float y_scale, float z_scale);
+		static Mat4 CreateScale(float scale) { return CreateScale(scale, scale, scale); }
 
 		/**
 		 * @brief 回転行列作成
 		 * @param theta : 回転角度
 		 */
-		static Mat4 rotationZ(float theta);
+		static Mat4 RotationZ(float theta);
 
 		/**
 		 * @brief 平行移動行列
 		 */
-		static Mat4 translation(const Vec3& trans);
+		static Mat4 Translation(const Vec3& trans);
 
 		/**
 		 * @brief 2Dビュー射影変換
 		 * @param width : 2Dビューの幅
 		 * @param height : 2Dビューの高さ
 		 */
-		static Mat4 createSimpleView(float width, float height);
+		static Mat4 CreateSimpleView(float width, float height);
 
 	};
 }

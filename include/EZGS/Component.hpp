@@ -32,6 +32,12 @@ namespace ezgs
         virtual void Update(float dt);
 
         /**
+         * @brief ワールド座標の計算
+         * @return なし
+         */
+        virtual void NotifiedUpdateWorldTransform() {};
+
+        /**
          * @brief 更新優先度の取得
          * @return コンポーネントの更新優先度（整数値）
          */

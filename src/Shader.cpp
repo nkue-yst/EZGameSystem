@@ -64,7 +64,7 @@ namespace ezgs
             loc_id,
             1,
             GL_TRUE,
-            mat.getPointer()
+            mat.GetPointer()
         );
     }
 

@@ -51,4 +51,19 @@ namespace ezgs
         if (iter != components_.end())
             components_.erase(iter);
     }
+
+    void Actor::ComputeWorldTransform()
+    {
+        if (need_recompute_world_transform_)
+        {
+            need_recompute_world_transform_ = false;
+
+            world_translation_  = Mat4::CreateScale(scale_);
+            world_translation_ *= Mat4::RotationZ(rotation_);
+            world_translation_ *= Mat4::Translation(Vec3(position_.x, position_.y, 0.0f));
+
+            for (auto compo : components_)
+                compo->NotifiedUpdateWorldTransform();
+        }
+    }
 }

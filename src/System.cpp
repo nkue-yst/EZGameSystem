@@ -70,11 +70,11 @@ namespace ezgs
         int LoadShader()
         {
             shader = new Shader();
-            if (shader->Load("shader/Simple.vert", "shader/Simple.frag"))
+            if (shader->Load("src/shader/Simple.vert", "src/shader/Simple.frag"))
                 return 1;
 
             shader->SetActive();
-            Mat4 simple_view = Mat4::createSimpleView(1920.f, 1080.f);
+            Mat4 simple_view = Mat4::CreateSimpleView(1920.f, 1080.f);
             shader->SetMatUniform("view_transform", simple_view);
             return 0;
         }

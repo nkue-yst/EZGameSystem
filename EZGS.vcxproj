@@ -92,7 +92,7 @@
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)src\shader" "$(OutDir)shader" /i /s /y</Command>
+xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -116,7 +116,7 @@ xcopy "$(SolutionDir)src\shader" "$(OutDir)shader" /i /s /y</Command>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)src\shader" "$(OutDir)shader" /i /s /y</Command>
+xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

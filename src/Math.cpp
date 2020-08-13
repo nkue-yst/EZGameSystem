@@ -12,7 +12,15 @@ namespace ezgs
 {
     const Vec2 Vec2::ZERO(0.0f, 0.0f);
 
-    Mat4 Mat4::createScale(float x_scale, float y_scale, float z_scale)
+    static float mat4_identity[4][4] = {
+        { 1.0f, 0.0f, 0.0f, 0.0f },
+        { 0.0f, 1.0f, 0.0f, 0.0f },
+        { 0.0f, 0.0f, 1.0f, 0.0f },
+        { 0.0f, 0.0f, 0.0f, 1.0f }
+    };
+    const Mat4 Mat4::Identity(mat4_identity);
+
+    Mat4 Mat4::CreateScale(float x_scale, float y_scale, float z_scale)
     {
         float res[4][4] =
         {
@@ -24,7 +32,7 @@ namespace ezgs
         return Mat4(res);
     }
 
-    Mat4 Mat4::rotationZ(float theta)
+    Mat4 Mat4::RotationZ(float theta)
     {
         float res[4][4] =
         {
@@ -36,7 +44,7 @@ namespace ezgs
         return Mat4(res);
     }
 
-    Mat4 Mat4::translation(const Vec3& trans)
+    Mat4 Mat4::Translation(const Vec3& trans)
     {
         float res[4][4] =
         {
@@ -48,7 +56,7 @@ namespace ezgs
         return Mat4(res);
     }
 
-    Mat4 Mat4::createSimpleView(float width, float height)
+    Mat4 Mat4::CreateSimpleView(float width, float height)
     {
         float res[4][4] =
         {
