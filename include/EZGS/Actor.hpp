@@ -74,11 +74,17 @@ namespace ezgs
         void SetScale(const float scl)    { scale_    = scl; need_recompute_world_transform_ = true; }
 
         /* Getter */
-        const State getState() const { return state_; }
-        const Mat4& getWorldTransform() const { return world_translation_; }
-        const Vec2& getPosition() const { return position_; }
-        const float getRotation() const { return rotation_; }
-        const float getScale() const { return scale_; }
+        const State GetState() const { return state_; }
+        const Mat4& GetWorldTransform() const { return world_translation_; }
+        const Vec2& GetPosition() const { return position_; }
+        const float GetRotation() const { return rotation_; }
+        const float GetScale() const { return scale_; }
+
+        /**
+         * @brief 前方方向を計算
+         * @return 前方方向を示すベクトル
+         */
+        Vec2 GetForward() const { return Vec2(std::cos(rotation_), std::sin(rotation_)); }
 
     private:
         // アクターの状態
