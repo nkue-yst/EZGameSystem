@@ -14,20 +14,24 @@
     <ClCompile Include="sample\EZGS_sample.cpp" />
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\DrawComponent.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\MoveComponent.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\System.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGS.hpp" />
     <ClInclude Include="include\EZGS\Actor.hpp" />
     <ClInclude Include="include\EZGS\Component.hpp" />
+    <ClInclude Include="include\EZGS\DrawComponent.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
     <ClInclude Include="include\EZGS\MoveComponent.hpp" />
     <ClInclude Include="include\EZGS\Shader.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
+    <ClInclude Include="include\EZGS\Texture.hpp" />
     <ClInclude Include="include\EZGS\VertexArray.hpp" />
   </ItemGroup>
   <ItemGroup>

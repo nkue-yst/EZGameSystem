@@ -145,5 +145,23 @@ namespace ezgs
                 actors.pop_back();
             }
         }
+
+        void AddDrawComponent(DrawComponent* d_component)
+        {
+            int draw_order = d_component->GetDrawOrder();
+
+            auto iter = d_components_.begin();
+            for (; iter != d_components_.end(); ++iter)
+                if (draw_order < (*iter)->GetDrawOrder())
+                    break;
+
+            d_components_.insert(iter, d_component);
+        }
+
+        void RemoveDrawComponent(DrawComponent* d_component)
+        {
+            auto iter = std::find(d_components_.begin(), d_components_.end(), d_component);
+            d_components_.erase(iter);
+        }
     }
 }

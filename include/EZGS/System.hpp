@@ -7,6 +7,7 @@
 
 #pragma once
 #include <EZGS/Actor.hpp>
+#include <EZGS/DrawComponent.hpp>
 #include <EZGS/Shader.hpp>
 #include <EZGS/VertexArray.hpp>
 #include <vector>
@@ -28,8 +29,11 @@ namespace ezgs
         // アクター配列
         static std::vector<Actor*> actors;
 
-        // 街状態のアクター用配列
+        // 待機状態のアクター用配列
         static std::vector<Actor*> waiting_actors;
+
+        // 描画コンポーネント用配列
+        static std::vector<DrawComponent*> d_components_;
 
         // シェーダープログラム
         static Shader* shader;
@@ -90,5 +94,19 @@ namespace ezgs
          * @return なし
          */
         void RemoveActor(Actor* actor);
+
+        /**
+         * @brief 描画コンポーネントをシステムに追加
+         * @param d_component : 追加するコンポーネント
+         * @return なし
+         */
+        void AddDrawComponent(class DrawComponent* d_component);
+
+        /**
+         * @brief 描画コンポーネントをシステムから削除
+         * @param d_component : 削除するコンポーネント
+         * @return なし
+         */
+        void RemoveDrawComponent(class DrawComponent* d_component);
     }
 }

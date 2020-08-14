@@ -18,7 +18,7 @@ namespace ezgs
         /**
          * @brief 所有アクター、更新優先度を設定
          */
-        Component(class Actor* owner, int update_order);
+        Component(class Actor* owner, int update_order = 100);
 
         /**
          * @brief 所有アクターからコンポーネントを削除
