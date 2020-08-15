@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/13
+ * @date 2020/08/15
  */
 
 #include <EZGS/DrawComponent.hpp>
@@ -46,6 +46,8 @@ namespace ezgs
 
     void DrawComponent::SetTexture(class Texture* texture)
     {
-
+        texture_ = texture;
+        texture_width_ = texture_->GetWidth();
+        texture_height_ = texture->GetHeight();
     }
 }

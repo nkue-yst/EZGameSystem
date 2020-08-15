@@ -1,6 +1,6 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/13
+ * @date 2020/08/15
  */
 
 #include <EZGS/System.hpp>
@@ -62,7 +62,7 @@ namespace ezgs
 
             CreateVerts();
 
-            ticks_count_ = SDL_GetTicks();
+            ticks_count = SDL_GetTicks();
 
             return 0;
         }
@@ -74,7 +74,7 @@ namespace ezgs
                 return 1;
 
             shader->SetActive();
-            Mat4 simple_view = Mat4::CreateSimpleView(1920.f, 1080.f);
+            Mat4 simple_view = Mat4::CreateSimpleView(1280.f, 720.f);
             shader->SetMatUniform("view_transform", simple_view);
             return 0;
         }
@@ -98,6 +98,7 @@ namespace ezgs
 
         void Destroy()
         {
+            UnloadData();
             delete verts;
             shader->Unload();
             delete shader;
@@ -111,20 +112,21 @@ namespace ezgs
             while (is_running)
             {
                 RunSystem();
+                Draw();
             }
         }
 
         void RunSystem()
         {
             // 60FPS制限
-            while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticks_count_ + 16))
+            while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticks_count + 16))
                 ;
 
-            float dt = (SDL_GetTicks() - ticks_count_) / 1000.0f;
+            float dt = (SDL_GetTicks() - ticks_count) / 1000.0f;
             if (dt > 0.05f)
                 dt = 0.05f;
 
-            ticks_count_ = SDL_GetTicks();
+            ticks_count = SDL_GetTicks();
 
             /* アクターの更新 */
             is_actor_updating = true;
@@ -148,6 +150,23 @@ namespace ezgs
 
             for (auto actor : dead_actors)
                 delete actor;
+        }
+
+        void Draw()
+        {
+            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+            shader->SetActive();
+            verts->SetActive();
+
+            for (auto component : d_components)
+                component->Draw();
+
+            SDL_GL_SwapWindow(window);
         }
 
         void UnloadData()
@@ -194,18 +213,18 @@ namespace ezgs
         {
             int draw_order = d_component->GetDrawOrder();
 
-            auto iter = d_components_.begin();
-            for (; iter != d_components_.end(); ++iter)
+            auto iter = d_components.begin();
+            for (; iter != d_components.end(); ++iter)
                 if (draw_order < (*iter)->GetDrawOrder())
                     break;
 
-            d_components_.insert(iter, d_component);
+            d_components.insert(iter, d_component);
         }
 
         void RemoveDrawComponent(DrawComponent* d_component)
         {
-            auto iter = std::find(d_components_.begin(), d_components_.end(), d_component);
-            d_components_.erase(iter);
+            auto iter = std::find(d_components.begin(), d_components.end(), d_component);
+            d_components.erase(iter);
         }
 
         Texture* GetTexture(const std::string& file_name)

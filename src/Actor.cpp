@@ -33,6 +33,12 @@ namespace ezgs
 
     }
 
+    void Actor::UpdateComponents(float dt)
+    {
+        for (auto component : components_)
+            component->Update(dt);
+    }
+
     void Actor::AddComponent(Component* component)
     {
         int own_order = component->GetUpdateOrder();

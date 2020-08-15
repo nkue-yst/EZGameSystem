@@ -2,7 +2,7 @@
  * @file Actor.hpp
  * @brief アクタークラス
  * @author Yoshito Nakaue
- * @date 2020/08/11
+ * @date 2020/08/15
  */
 
 #pragma once
@@ -48,6 +48,12 @@ namespace ezgs
          * @return なし
          */
         virtual void UpdateActor(float dt);
+
+        /**
+         * @brief 所有コンポーネントの更新
+         * @return なし
+         */
+        void UpdateComponents(float dt);
 
         /**
          * @brief アクターにコンポーネントを追加

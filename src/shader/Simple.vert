@@ -1,7 +1,7 @@
 #version 330
 
-// @author Yoshito Nakaue
-// @date 2020/08/13
+uniform mat4 world_transform;
+uniform mat4 view_transform;
 
 layout(location = 0) in vec3 in_position;
 layout(location = 1) in vec2 in_tex_coord;

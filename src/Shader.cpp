@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/13
+ * @date 2020/08/15
  */
 
 #include <EZGS/Shader.hpp>
@@ -26,10 +26,10 @@ namespace ezgs
 
     int Shader::Load(const std::string& vert_name, const std::string& frag_name)
     {
-        if (!CompileShader(vert_name, GL_VERTEX_SHADER, id_vertex_shader_) ||
-            !CompileShader(frag_name, GL_FRAGMENT_SHADER, id_frag_shader_))
+        if (CompileShader(vert_name, GL_VERTEX_SHADER, id_vertex_shader_) ||
+            CompileShader(frag_name, GL_FRAGMENT_SHADER, id_frag_shader_))
         {
-            return false;
+            return 1;
         }
 
         shader_program_ = glCreateProgram();
@@ -37,10 +37,8 @@ namespace ezgs
         glAttachShader(shader_program_, id_frag_shader_);
         glLinkProgram(shader_program_);
 
-        if (!IsValidProgram())
-        {
+        if (IsValidProgram())
             return 1;
-        }
 
         return 0;
     }
@@ -82,7 +80,7 @@ namespace ezgs
             glShaderSource(out_shader, 1, &(contents_char), nullptr);
             glCompileShader(out_shader);
 
-            if (!IsCompiled(out_shader))
+            if (IsCompiled(out_shader))
             {
                 SDL_Log("Failed to compile %s.", file_name.c_str());
                 return 1;

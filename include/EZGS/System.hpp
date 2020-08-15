@@ -2,7 +2,7 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/08/13
+ * @date 2020/08/15
  */
 
 #pragma once
@@ -26,7 +26,7 @@ namespace ezgs
         static SDL_GLContext context;
 
         // Tickカウンター
-        static Uint32 ticks_count_;
+        static Uint32 ticks_count;
 
         // アクター配列
         static std::vector<Actor*> actors;
@@ -35,7 +35,7 @@ namespace ezgs
         static std::vector<Actor*> waiting_actors;
 
         // 描画コンポーネント用配列
-        static std::vector<DrawComponent*> d_components_;
+        static std::vector<DrawComponent*> d_components;
 
         // テクスチャ配列
         static std::unordered_map<std::string, class Texture*> textures;
@@ -47,7 +47,7 @@ namespace ezgs
         static VertexArray* verts;
 
         // メインループの更新条件
-        static bool is_running;
+        static bool is_running = true;
 
         // アクターを更新中かどうか
         static bool is_actor_updating = false;
@@ -87,6 +87,12 @@ namespace ezgs
          * @return なし
          */
         void RunSystem();
+
+        /**
+         * @brief 描画物を描画
+         * @return なし
+         */
+        void Draw();
 
         /**
          * @brief データ破棄

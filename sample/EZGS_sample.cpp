@@ -3,7 +3,10 @@
 int main(int argc, char **argv)
 {
     System::CreateWindow();
-    System::Destroy();
 
+    Actor* actor = new Actor();
+    DrawComponent* dc = new DrawComponent(actor);
+
+    System::Destroy();
     return 0;
 }
