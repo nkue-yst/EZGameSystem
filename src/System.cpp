@@ -110,8 +110,44 @@ namespace ezgs
         {
             while (is_running)
             {
-
+                RunSystem();
             }
+        }
+
+        void RunSystem()
+        {
+            // 60FPS制限
+            while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticks_count_ + 16))
+                ;
+
+            float dt = (SDL_GetTicks() - ticks_count_) / 1000.0f;
+            if (dt > 0.05f)
+                dt = 0.05f;
+
+            ticks_count_ = SDL_GetTicks();
+
+            /* アクターの更新 */
+            is_actor_updating = true;
+            for (auto actor : actors)
+                actor->Update(dt);
+            is_actor_updating = false;
+
+            /* 待機アクターをactorsに移動 */
+            for (auto actor : waiting_actors)
+            {
+                actor->ComputeWorldTransform();
+                actors.emplace_back(actor);
+            }
+            waiting_actors.clear();
+
+            /* 死亡アクターを一時保存後に破棄 */
+            std::vector<Actor*> dead_actors;
+            for (auto actor : actors)
+                if (actor->GetState() == State::EDead)
+                    dead_actors.emplace_back(actor);
+
+            for (auto actor : dead_actors)
+                delete actor;
         }
 
         void UnloadData()
@@ -119,6 +155,14 @@ namespace ezgs
             /* アクターを破棄 */
             while (!actors.empty())
                 delete actors.back();
+
+            /* テクスチャを破棄 */
+            for (auto iter : textures)
+            {
+                iter.second->UnloadImage();
+                delete iter.second;
+            }
+            textures.clear();
         }
 
         void AddActor(Actor* actor)
@@ -162,6 +206,27 @@ namespace ezgs
         {
             auto iter = std::find(d_components_.begin(), d_components_.end(), d_component);
             d_components_.erase(iter);
+        }
+
+        Texture* GetTexture(const std::string& file_name)
+        {
+            Texture* texture = nullptr;
+
+            auto iter = textures.find(file_name);
+            if (iter != textures.end())
+                texture = iter->second;
+            else
+            {
+                texture = new Texture();
+                if (texture->LoadImage(file_name))
+                    textures.emplace(file_name, texture);
+                else
+                {
+                    delete texture;
+                    texture = nullptr;
+                }
+            }
+            return texture;
         }
     }
 }

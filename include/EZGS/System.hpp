@@ -9,7 +9,9 @@
 #include <EZGS/Actor.hpp>
 #include <EZGS/DrawComponent.hpp>
 #include <EZGS/Shader.hpp>
+#include <EZGS/Texture.hpp>
 #include <EZGS/VertexArray.hpp>
+#include <unordered_map>
 #include <vector>
 #include <SDL.h>
 
@@ -34,6 +36,9 @@ namespace ezgs
 
         // 描画コンポーネント用配列
         static std::vector<DrawComponent*> d_components_;
+
+        // テクスチャ配列
+        static std::unordered_map<std::string, class Texture*> textures;
 
         // シェーダープログラム
         static Shader* shader;
@@ -78,6 +83,12 @@ namespace ezgs
         void Update();
 
         /**
+         * @brief システム全体の更新
+         * @return なし
+         */
+        void RunSystem();
+
+        /**
          * @brief データ破棄
          * @return なし
          */
@@ -108,5 +119,12 @@ namespace ezgs
          * @return なし
          */
         void RemoveDrawComponent(class DrawComponent* d_component);
+
+        /**
+         * @brief システムからテクスチャを読み込み・追加
+         * @param file_name : 検索ファイル名
+         * @return 検索・追加したテクスチャ
+         */
+        class Texture* GetTexture(const std::string& file_name);
     }
 }
