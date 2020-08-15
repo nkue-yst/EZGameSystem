@@ -7,6 +7,7 @@
 
 #pragma once
 #include <EZGS/Component.hpp>
+#include <string>
 
 namespace ezgs
 {
@@ -18,8 +19,11 @@ namespace ezgs
     public:
         /**
          * @brief システムに自身を追加
+         * @param owner : 所有アクター
+         * @param image_name : 割り当てテクスチャ名（画像ファイル名）
+         * @param draw_order : 描画優先度
          */
-        DrawComponent(class Actor* owner, int draw_order = 100);
+        DrawComponent(class Actor* owner, const std::string& image_name, int draw_order = 100);
 
         /**
          * @brief システムから自身を削除

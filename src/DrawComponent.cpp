@@ -12,7 +12,7 @@
 
 namespace ezgs
 {
-    DrawComponent::DrawComponent(Actor* owner, int draw_order)
+    DrawComponent::DrawComponent(Actor* owner, const std::string& image_name, int draw_order)
         :Component(owner)
         , texture_(nullptr)
         , texture_width_(0)
@@ -20,6 +20,7 @@ namespace ezgs
         , draw_order_(draw_order)
     {
         System::AddDrawComponent(this);
+        SetTexture(System::GetTexture(image_name));
     }
 
     DrawComponent::~DrawComponent()

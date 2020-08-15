@@ -28,9 +28,9 @@ namespace ezgs
     {
         SDL_Surface* image = IMG_Load(file_name.c_str());
 
-        if (image == nullptr)
+        if (!image)
         {
-            SDL_Log("Failed to load image %s.", file_name.c_str());
+            SDL_Log("Failed to load image %s", file_name.c_str());
             return 1;
         }
 
@@ -59,6 +59,7 @@ namespace ezgs
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+        SDL_FreeSurface(image);
         return 0;
     }
 

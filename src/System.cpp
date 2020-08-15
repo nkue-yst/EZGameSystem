@@ -6,6 +6,7 @@
 #include <EZGS/System.hpp>
 #include <EZGS/Math.hpp>
 #include <GL/glew.h>
+#include <SDL_image.h>
 
 namespace ezgs
 {
@@ -16,6 +17,14 @@ namespace ezgs
             if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
             {
                 SDL_Log("Failed to initialize SDL2 : %s", SDL_GetError());
+                return 1;
+            }
+
+            int flags = IMG_INIT_JPG | IMG_INIT_PNG;
+            int initted = IMG_Init(flags);
+            if ((initted&flags) != flags)
+            {
+                SDL_Log("Failed to initialize SDL2_image : %s", SDL_GetError());
                 return 1;
             }
 
@@ -104,6 +113,7 @@ namespace ezgs
             delete shader;
             SDL_GL_DeleteContext(context);
             SDL_DestroyWindow(window);
+            IMG_Quit();
             SDL_Quit();
         }
 
@@ -237,7 +247,7 @@ namespace ezgs
             else
             {
                 texture = new Texture();
-                if (texture->LoadImage(file_name))
+                if (!texture->LoadImage(file_name))
                     textures.emplace(file_name, texture);
                 else
                 {

@@ -96,13 +96,19 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
+xcopy "$(SolutionDir)sample\image" "$(OutDir)sample\image" /i /s /y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -123,13 +129,19 @@ xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
+xcopy "$(SolutionDir)sample\image" "$(OutDir)sample\image" /i /s /y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
