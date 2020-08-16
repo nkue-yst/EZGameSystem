@@ -1,9 +1,10 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/15
+ * @date 2020/08/16
  */
 
 #include <EZGS/Shader.hpp>
+#include <EZGS/System.hpp>
 #include <EZGS/Math.hpp>
 #include <fstream>
 #include <sstream>

@@ -1,11 +1,19 @@
-﻿#include <EZGS.hpp>
+﻿/**
+ * @author Yoshito Nakaue
+ * @date 2020/08/16
+ */
+
+#include <EZGS.hpp>
 
 int main(int argc, char **argv)
 {
-    System::CreateWindow();
+    if (System::CreateWindow())
+        return 1;
 
-    Actor* actor = new Actor();
-    DrawComponent* dc = new DrawComponent(actor, "sample/image/sample.png");
+    Actor actor;
+    DrawComponent* dc = new DrawComponent(&actor, "sample/image/sample.png");
+
+    System::Update();
 
     System::Destroy();
     return 0;

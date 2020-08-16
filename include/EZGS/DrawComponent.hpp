@@ -2,7 +2,7 @@
  * @file DrawComponent.hpp
  * @brief 描画用コンポーネントクラス
  * @author Yoshito Nakaue
- * @date 2020/08/13
+ * @date 2020/08/16
  */
 
 #pragma once
@@ -32,9 +32,10 @@ namespace ezgs
 
         /**
          * @brief 描画を実行
+         * @param shader : 使用するシェーダークラス
          * @return なし
          */
-        virtual void Draw();
+        virtual void Draw(class Shader* shader);
 
         /**
          * @brief テクスチャを設定

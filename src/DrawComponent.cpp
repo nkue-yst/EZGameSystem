@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/15
+ * @date 2020/08/16
  */
 
 #include <EZGS/DrawComponent.hpp>
@@ -28,7 +28,7 @@ namespace ezgs
         System::RemoveDrawComponent(this);
     }
 
-    void DrawComponent::Draw()
+    void DrawComponent::Draw(Shader* shader)
     {
         if (texture_)
         {
@@ -39,7 +39,7 @@ namespace ezgs
             );
             Mat4 world_transform = scale_mat * owner_->GetWorldTransform();
 
-            System::shader->SetMatUniform("world_transform", world_transform);
+            shader->SetMatUniform("world_transform", world_transform);
             texture_->SetActive();
             glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
         }
@@ -48,7 +48,7 @@ namespace ezgs
     void DrawComponent::SetTexture(class Texture* texture)
     {
         texture_ = texture;
-        texture_width_ = texture_->GetWidth();
+        texture_width_ = texture->GetWidth();
         texture_height_ = texture->GetHeight();
     }
 }

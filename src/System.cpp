@@ -174,7 +174,7 @@ namespace ezgs
             verts->SetActive();
 
             for (auto component : d_components)
-                component->Draw();
+                component->Draw(shader);
 
             SDL_GL_SwapWindow(window);
         }
