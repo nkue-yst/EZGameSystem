@@ -2,7 +2,7 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/08/15
+ * @date 2020/08/17
  */
 
 #pragma once
@@ -78,9 +78,15 @@ namespace ezgs
 
         /**
          * @brief メインループでの更新
+         * @return メインループを更新するかどうか
+         */
+        bool Update();
+
+        /**
+         * @brief is_runningにfalseを代入しメインループを終了する
          * @return なし
          */
-        void Update();
+        void End();
 
         /**
          * @brief システム全体の更新

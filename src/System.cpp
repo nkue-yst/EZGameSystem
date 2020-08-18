@@ -117,13 +117,14 @@ namespace ezgs
             SDL_Quit();
         }
 
-        void Update()
+        bool Update()
         {
-            while (is_running)
-            {
-                RunSystem();
-                Draw();
-            }
+            return is_running;
+        }
+
+        void End()
+        {
+            is_running = false;
         }
 
         void RunSystem()

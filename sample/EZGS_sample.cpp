@@ -13,7 +13,10 @@ int main(int argc, char **argv)
     Actor actor;
     DrawComponent* dc = new DrawComponent(&actor, "sample/image/sample.png");
 
-    System::Update();
+    while (System::Update)
+    {
+
+    }
 
     System::Destroy();
     return 0;
