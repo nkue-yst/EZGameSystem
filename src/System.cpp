@@ -1,9 +1,10 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/15
+ * @date 2020/08/18
  */
 
 #include <EZGS/System.hpp>
+#include <EZGS/Scene.hpp>
 #include <EZGS/Math.hpp>
 #include <GL/glew.h>
 #include <SDL_image.h>
@@ -119,6 +120,12 @@ namespace ezgs
 
         bool Update()
         {
+            if (is_running)
+            {
+                RunSystem();
+                Draw();
+            }
+
             return is_running;
         }
 
@@ -165,17 +172,14 @@ namespace ezgs
 
         void Draw()
         {
-            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+            glClearColor(Scene::bg_color.red, Scene::bg_color.green, Scene::bg_color.blue, Scene::bg_color.alpha);
 
+            glClear(GL_COLOR_BUFFER_BIT);
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-            shader->SetActive();
-            verts->SetActive();
-
-            for (auto component : d_components)
-                component->Draw(shader);
+            System::shader->SetActive();
+            System::verts->SetActive();
 
             SDL_GL_SwapWindow(window);
         }

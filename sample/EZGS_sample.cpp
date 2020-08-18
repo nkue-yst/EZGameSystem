@@ -10,12 +10,14 @@ int main(int argc, char **argv)
     if (System::CreateWindow())
         return 1;
 
-    Actor actor;
-    DrawComponent* dc = new DrawComponent(&actor, "sample/image/sample.png");
+    Scene::SetBackgroundColor(0.5f, 0.5f, 0.5f);
 
-    while (System::Update)
+    Actor* actor = new Actor();
+    DrawComponent* dc = new DrawComponent(actor, "sample/image/sample.png");
+
+    while (System::Update())
     {
-
+        System::End();
     }
 
     System::Destroy();

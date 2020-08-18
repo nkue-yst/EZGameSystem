@@ -12,6 +12,7 @@
 #include <EZGS/DrawComponent.hpp>
 #include <EZGS/Math.hpp>
 #include <EZGS/MoveComponent.hpp>
+#include <EZGS/Scene.hpp>
 #include <EZGS/Shader.hpp>
 #include <EZGS/System.hpp>
 #include <EZGS/Texture.hpp>

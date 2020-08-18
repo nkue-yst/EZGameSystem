@@ -17,6 +17,7 @@
     <ClCompile Include="src\DrawComponent.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\MoveComponent.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\Texture.cpp" />
@@ -29,6 +30,7 @@
     <ClInclude Include="include\EZGS\DrawComponent.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
     <ClInclude Include="include\EZGS\MoveComponent.hpp" />
+    <ClInclude Include="include\EZGS\Scene.hpp" />
     <ClInclude Include="include\EZGS\Shader.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
     <ClInclude Include="include\EZGS\Texture.hpp" />
