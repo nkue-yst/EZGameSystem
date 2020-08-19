@@ -2,12 +2,10 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/08/17
+ * @date 2020/08/19
  */
 
 #pragma once
-#include <EZGS/Actor.hpp>
-#include <EZGS/DrawComponent.hpp>
 #include <EZGS/Shader.hpp>
 #include <EZGS/Texture.hpp>
 #include <EZGS/VertexArray.hpp>
@@ -19,44 +17,62 @@ namespace ezgs
 {
     namespace System
     {
-        // 作成したウィンドウを格納
-        static SDL_Window* window;
+        namespace
+        {
+            // 作成したウィンドウを格納
+            SDL_Window* window;
 
-        // windowに描画するcontext
-        static SDL_GLContext context;
+            // windowに描画するcontext
+            SDL_GLContext context;
 
-        // Tickカウンター
-        static Uint32 ticks_count;
+            // Tickカウンター
+            Uint32 ticks_count;
 
-        // アクター配列
-        static std::vector<Actor*> actors;
+            // テクスチャ配列
+            std::unordered_map<std::string, class Texture*> textures;
 
-        // 待機状態のアクター用配列
-        static std::vector<Actor*> waiting_actors;
+            // シェーダープログラム
+            Shader* shader;
 
-        // 描画コンポーネント用配列
-        static std::vector<DrawComponent*> d_components;
+            // 頂点配列
+            VertexArray* verts;
 
-        // テクスチャ配列
-        static std::unordered_map<std::string, class Texture*> textures;
+            // メインループの更新条件
+            bool is_running = true;
+        }
 
-        // シェーダープログラム
-        static Shader* shader;
-
-        // 頂点配列
-        static VertexArray* verts;
-
-        // メインループの更新条件
-        static bool is_running = true;
-
-        // アクターを更新中かどうか
-        static bool is_actor_updating = false;
+        /*****
+         *** Public Function
+         ****/
 
         /**
          * @brief 描画システムを初期化、ウィンドウを作成
          * @return 成功時 0、失敗時 1
          */
         int CreateWindow();
+
+        /**
+         * @brief メインループでの更新
+         * @return メインループを更新するかどうか
+         */
+        bool Update();
+
+        /**
+         * @brief is_runningにfalseを代入しメインループを終了する
+         * @return なし
+         */
+        void EndLoop();
+
+        /**
+         * @brief 描画システムの終了処理
+         * @return なし
+         */
+        void EZGS_Quit();
+
+
+        /*****
+         *** Private Function
+         ****/
 
         /**
          * @brief シェーダー読み込み
@@ -71,24 +87,6 @@ namespace ezgs
         void CreateVerts();
 
         /**
-         * @brief 描画システムの終了処理
-         * @return なし
-         */
-        void Destroy();
-
-        /**
-         * @brief メインループでの更新
-         * @return メインループを更新するかどうか
-         */
-        bool Update();
-
-        /**
-         * @brief is_runningにfalseを代入しメインループを終了する
-         * @return なし
-         */
-        void End();
-
-        /**
          * @brief システム全体の更新
          * @return なし
          */
@@ -101,36 +99,16 @@ namespace ezgs
         void Draw();
 
         /**
+         * @brief 入力を受け付ける
+         * @return なし
+         */
+        void InputKeys();
+
+        /**
          * @brief データ破棄
          * @return なし
          */
         void UnloadData();
-
-        /**
-         * @brief Actorを追加
-         * @return なし
-         */
-        void AddActor(Actor* actor);
-
-        /**
-         * @brief Actorを削除
-         * @return なし
-         */
-        void RemoveActor(Actor* actor);
-
-        /**
-         * @brief 描画コンポーネントをシステムに追加
-         * @param d_component : 追加するコンポーネント
-         * @return なし
-         */
-        void AddDrawComponent(class DrawComponent* d_component);
-
-        /**
-         * @brief 描画コンポーネントをシステムから削除
-         * @param d_component : 削除するコンポーネント
-         * @return なし
-         */
-        void RemoveDrawComponent(class DrawComponent* d_component);
 
         /**
          * @brief システムからテクスチャを読み込み・追加
@@ -140,3 +118,5 @@ namespace ezgs
         class Texture* GetTexture(const std::string& file_name);
     }
 }
+
+#define ezgs_main() main(int argc, char **argv)

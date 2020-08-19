@@ -1,10 +1,9 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/18
+ * @date 2020/08/19
  */
 
 #include <EZGS/System.hpp>
-#include <EZGS/Scene.hpp>
 #include <EZGS/Math.hpp>
 #include <GL/glew.h>
 #include <SDL_image.h>
@@ -106,7 +105,7 @@ namespace ezgs
             verts = new VertexArray(vertices, 4, indices, 6);
         }
 
-        void Destroy()
+        void EZGS_Quit()
         {
             UnloadData();
             delete verts;
@@ -120,16 +119,14 @@ namespace ezgs
 
         bool Update()
         {
-            if (is_running)
-            {
-                RunSystem();
-                Draw();
-            }
+            InputKeys();
+            RunSystem();
+            Draw();
 
             return is_running;
         }
 
-        void End()
+        void EndLoop()
         {
             is_running = false;
         }
@@ -145,51 +142,44 @@ namespace ezgs
                 dt = 0.05f;
 
             ticks_count = SDL_GetTicks();
-
-            /* アクターの更新 */
-            is_actor_updating = true;
-            for (auto actor : actors)
-                actor->Update(dt);
-            is_actor_updating = false;
-
-            /* 待機アクターをactorsに移動 */
-            for (auto actor : waiting_actors)
-            {
-                actor->ComputeWorldTransform();
-                actors.emplace_back(actor);
-            }
-            waiting_actors.clear();
-
-            /* 死亡アクターを一時保存後に破棄 */
-            std::vector<Actor*> dead_actors;
-            for (auto actor : actors)
-                if (actor->GetState() == State::EDead)
-                    dead_actors.emplace_back(actor);
-
-            for (auto actor : dead_actors)
-                delete actor;
         }
 
         void Draw()
         {
-            glClearColor(Scene::bg_color.red, Scene::bg_color.green, Scene::bg_color.blue, Scene::bg_color.alpha);
-
+            glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
+
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
             System::shader->SetActive();
             System::verts->SetActive();
 
+            // Draw
+
             SDL_GL_SwapWindow(window);
+        }
+
+        void InputKeys()
+        {
+            SDL_Event ev;
+            while (SDL_PollEvent(&ev))
+            {
+                switch (ev.type)
+                {
+                case SDL_QUIT:
+                    is_running = false;
+                    break;
+                }
+            }
+
+            const Uint8* key_state = SDL_GetKeyboardState(NULL);
+            if (key_state[SDL_SCANCODE_ESCAPE])
+                is_running = false;
         }
 
         void UnloadData()
         {
-            /* アクターを破棄 */
-            while (!actors.empty())
-                delete actors.back();
-
             /* テクスチャを破棄 */
             for (auto iter : textures)
             {
@@ -197,49 +187,6 @@ namespace ezgs
                 delete iter.second;
             }
             textures.clear();
-        }
-
-        void AddActor(Actor* actor)
-        {
-            if (is_actor_updating)
-                waiting_actors.emplace_back(actor);
-            else
-                actors.emplace_back(actor);
-        }
-
-        void RemoveActor(Actor* actor)
-        {
-            auto iter = std::find(waiting_actors.begin(), waiting_actors.end(), actor);
-            if (iter != waiting_actors.end())
-            {
-                std::iter_swap(iter, waiting_actors.end() - 1);
-                waiting_actors.pop_back();
-            }
-
-            iter = std::find(actors.begin(), actors.end(), actor);
-            if (iter != actors.end())
-            {
-                std::iter_swap(iter, actors.end() - 1);
-                actors.pop_back();
-            }
-        }
-
-        void AddDrawComponent(DrawComponent* d_component)
-        {
-            int draw_order = d_component->GetDrawOrder();
-
-            auto iter = d_components.begin();
-            for (; iter != d_components.end(); ++iter)
-                if (draw_order < (*iter)->GetDrawOrder())
-                    break;
-
-            d_components.insert(iter, d_component);
-        }
-
-        void RemoveDrawComponent(DrawComponent* d_component)
-        {
-            auto iter = std::find(d_components.begin(), d_components.end(), d_component);
-            d_components.erase(iter);
         }
 
         Texture* GetTexture(const std::string& file_name)
