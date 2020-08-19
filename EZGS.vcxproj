@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="sample\EZGS_sample.cpp" />
     <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\Texture.cpp" />
@@ -20,7 +21,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGS.hpp" />
+    <ClInclude Include="include\EZGS\Color.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
+    <ClInclude Include="include\EZGS\Scene.hpp" />
     <ClInclude Include="include\EZGS\Shader.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
     <ClInclude Include="include\EZGS\Texture.hpp" />

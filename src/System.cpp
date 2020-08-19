@@ -1,6 +1,6 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/19
+ * @date 2020/08/20
  */
 
 #include <EZGS/System.hpp>
@@ -146,7 +146,7 @@ namespace ezgs
 
         void Draw()
         {
-            glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+            glClearColor(bg_color.red, bg_color.green, bg_color.blue, bg_color.alpha);
             glClear(GL_COLOR_BUFFER_BIT);
 
             glEnable(GL_BLEND);
@@ -167,10 +167,13 @@ namespace ezgs
             {
                 switch (ev.type)
                 {
-                case SDL_QUIT:
-                    is_running = false;
-                    break;
+                    case SDL_QUIT:
+                        is_running = false;
+                        break;
+                    default:
+                        break;
                 }
+                break;
             }
 
             const Uint8* key_state = SDL_GetKeyboardState(NULL);
@@ -208,6 +211,14 @@ namespace ezgs
                 }
             }
             return texture;
+        }
+
+        void SetBackgroundColor(float R, float G, float B)
+        {
+            bg_color.red = R;
+            bg_color.green = G;
+            bg_color.blue = B;
+            bg_color.alpha = 1.0f;
         }
     }
 }

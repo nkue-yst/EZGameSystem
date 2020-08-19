@@ -2,10 +2,11 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/08/19
+ * @date 2020/08/20
  */
 
 #pragma once
+#include <EZGS/Color.hpp>
 #include <EZGS/Shader.hpp>
 #include <EZGS/Texture.hpp>
 #include <EZGS/VertexArray.hpp>
@@ -24,6 +25,9 @@ namespace ezgs
 
             // windowに描画するcontext
             SDL_GLContext context;
+
+            // 背景色
+            Color bg_color = { 1.0f, 1.0f, 1.0f, 1.0f };
 
             // Tickカウンター
             Uint32 ticks_count;
@@ -116,6 +120,15 @@ namespace ezgs
          * @return 検索・追加したテクスチャ
          */
         class Texture* GetTexture(const std::string& file_name);
+
+        /**
+         * @brief 背景色を設定 (Scene::SetBackgroundColorから呼び出し)
+         * @param R : 赤 0.0 ~ 1.0
+         * @param G : 緑 0.0 ~ 1.0
+         * @param B : 青 0.0 ~ 1.0
+         * @return なし
+         */
+        void SetBackgroundColor(float R, float G, float B);
     }
 }
 
