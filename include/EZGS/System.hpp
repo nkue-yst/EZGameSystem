@@ -2,14 +2,12 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/08/20
+ * @date 2020/08/21
  */
 
 #pragma once
 #include <EZGS/Color.hpp>
-#include <EZGS/Shader.hpp>
 #include <EZGS/Texture.hpp>
-#include <EZGS/VertexArray.hpp>
 #include <unordered_map>
 #include <vector>
 #include <SDL.h>
@@ -23,23 +21,17 @@ namespace ezgs
             // 作成したウィンドウを格納
             SDL_Window* window;
 
-            // windowに描画するcontext
-            SDL_GLContext context;
+            // windowに描画するレンダラー
+            SDL_Renderer* renderer;
 
             // 背景色
-            Color bg_color = { 1.0f, 1.0f, 1.0f, 1.0f };
+            Color bg_color = { 255, 255, 255, 255 };
 
             // Tickカウンター
             Uint32 ticks_count;
 
             // テクスチャ配列
             std::unordered_map<std::string, class Texture*> textures;
-
-            // シェーダープログラム
-            Shader* shader;
-
-            // 頂点配列
-            VertexArray* verts;
 
             // メインループの更新条件
             bool is_running = true;
@@ -79,18 +71,6 @@ namespace ezgs
          ****/
 
         /**
-         * @brief シェーダー読み込み
-         * @return 成功時 0、失敗時 1
-         */
-        int LoadShader();
-
-        /**
-         * @brief 頂点配列を作成
-         * @return なし
-         */
-        void CreateVerts();
-
-        /**
          * @brief システム全体の更新
          * @return なし
          */
@@ -116,20 +96,18 @@ namespace ezgs
 
         /**
          * @brief システムからテクスチャを読み込み・追加
-         * @param file_name : 検索ファイル名
+         * @param file_name 検索ファイル名
          * @return 検索・追加したテクスチャ
          */
         class Texture* GetTexture(const std::string& file_name);
 
         /**
          * @brief 背景色を設定 (Scene::SetBackgroundColorから呼び出し)
-         * @param R : 赤 0.0 ~ 1.0
-         * @param G : 緑 0.0 ~ 1.0
-         * @param B : 青 0.0 ~ 1.0
+         * @param R 赤(0~255)
+         * @param G 緑(0~255)
+         * @param B 青(0~255)
          * @return なし
          */
-        void SetBackgroundColor(float R, float G, float B);
+        void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B);
     }
 }
-
-#define ezgs_main() main(int argc, char **argv)

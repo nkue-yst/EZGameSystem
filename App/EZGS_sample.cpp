@@ -1,6 +1,6 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/20
+ * @date 2020/08/21
  */
 
 #include <EZGS.hpp>
@@ -9,12 +9,11 @@ int ezgs_main()
 {
     if (System::CreateWindow())
         return 1;
-
-    Scene::SetBackgroundColor(0.5f, 0.5f, 0.5f);
+    
+    Scene::SetBackgroundColor(0, 0, 20);
 
     while (System::Update())
     {
-        //System::End();
     }
 
     System::EZGS_Quit();

@@ -11,27 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sample\EZGS_sample.cpp" />
+    <ClCompile Include="App\EZGS_sample.cpp" />
+    <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\String.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\Texture.cpp" />
-    <ClCompile Include="src\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGS.hpp" />
     <ClInclude Include="include\EZGS\Color.hpp" />
+    <ClInclude Include="include\EZGS\Font.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
     <ClInclude Include="include\EZGS\Scene.hpp" />
-    <ClInclude Include="include\EZGS\Shader.hpp" />
+    <ClInclude Include="include\EZGS\String.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
     <ClInclude Include="include\EZGS\Texture.hpp" />
-    <ClInclude Include="include\EZGS\VertexArray.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\shader\Simple.frag" />
-    <None Include="src\shader\Simple.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -82,27 +78,29 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)lib\GLEW\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2_ttf\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\GLEW\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
+      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)Resouces" /i /s /y
+xcopy "$(SolutionDir)lib\Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
-xcopy "$(SolutionDir)sample\image" "$(OutDir)sample\image" /i /s /y</Command>
+xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\SDL2_ttf.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s /y
+</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -113,29 +111,31 @@ xcopy "$(SolutionDir)sample\image" "$(OutDir)sample\image" /i /s /y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)lib\GLEW\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2_ttf\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\GLEW\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)lib\GLEW\lib\x64\glew32.dll"  "$(OutDir)" /i /s /y
+      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)Resouces" /i /s /y
+xcopy "$(SolutionDir)lib\Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)src\shader" "$(OutDir)src/shader" /i /s /y
-xcopy "$(SolutionDir)sample\image" "$(OutDir)sample\image" /i /s /y</Command>
+xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\SDL2_ttf.dll"  "$(OutDir)" /i /s /y
+xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s /y
+</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

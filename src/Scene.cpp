@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/20
+ * @date 2020/08/21
  */
 
 #include <EZGS/Scene.hpp>
@@ -10,7 +10,7 @@ namespace ezgs
 {
     namespace Scene
     {
-        void SetBackgroundColor(float R, float G, float B)
+        void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
         {
             ezgs::System::SetBackgroundColor(R, G, B);
         }

@@ -1,12 +1,13 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/20
+ * @date 2020/08/21
  */
 
 #include <EZGS/System.hpp>
+#include <EZGS/Font.hpp>
 #include <EZGS/Math.hpp>
-#include <GL/glew.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 
 namespace ezgs
 {
@@ -24,19 +25,15 @@ namespace ezgs
             int initted = IMG_Init(flags);
             if ((initted&flags) != flags)
             {
-                SDL_Log("Failed to initialize SDL2_image : %s", SDL_GetError());
+                SDL_Log("Failed to initialize SDL2_image : %s", IMG_GetError());
                 return 1;
             }
 
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-            SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
-            SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
-            SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
-            SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
-            SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-            SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+            if (TTF_Init() == -1)
+            {
+                SDL_Log("Failed to initialize SDL2_ttf : %s", TTF_GetError());
+                return 1;
+            }
 
             window = SDL_CreateWindow(
                 "Window Title",
@@ -44,7 +41,7 @@ namespace ezgs
                 100,
                 1280,
                 720,
-                SDL_WINDOW_OPENGL
+                0
             );
 
             if (!window)
@@ -52,67 +49,24 @@ namespace ezgs
                 SDL_Log("Failed to create window : %s", SDL_GetError());
                 return 1;
             }
-            context = SDL_GL_CreateContext(window);
 
-            glewExperimental = GL_TRUE;
-            if (glewInit() != GLEW_OK)
-            {
-                SDL_Log("Failed to initialize GLEW.");
-                return 1;
-            }
-            glGetError();
-
-            /* シェーダー読み込み */
-            if (LoadShader())
-            {
-                SDL_Log("Failed to load shader.");
-                return 1;
-            }
-
-            CreateVerts();
+            renderer = SDL_CreateRenderer(
+                window,
+                -1,
+                SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
+            );
 
             ticks_count = SDL_GetTicks();
 
             return 0;
         }
 
-        int LoadShader()
-        {
-            shader = new Shader();
-            if (shader->Load("src/shader/Simple.vert", "src/shader/Simple.frag"))
-                return 1;
-
-            shader->SetActive();
-            Mat4 simple_view = Mat4::CreateSimpleView(1280.f, 720.f);
-            shader->SetMatUniform("view_transform", simple_view);
-            return 0;
-        }
-
-        void CreateVerts()
-        {
-            float vertices[] = {
-                -0.5f,  0.5f,  0.f, 0.f, 0.f,
-                 0.5f,  0.5f,  0.f, 1.f, 0.f,
-                 0.5f, -0.5f,  0.f, 1.f, 1.f,
-                -0.5f, -0.5f,  0.f, 0.f, 1.f
-            };
-
-            unsigned int indices[] = {
-                0, 1, 2,
-                2, 3, 0
-            };
-
-            verts = new VertexArray(vertices, 4, indices, 6);
-        }
-
         void EZGS_Quit()
         {
             UnloadData();
-            delete verts;
-            shader->Unload();
-            delete shader;
-            SDL_GL_DeleteContext(context);
+            SDL_DestroyRenderer(renderer);
             SDL_DestroyWindow(window);
+            TTF_Quit();
             IMG_Quit();
             SDL_Quit();
         }
@@ -120,8 +74,8 @@ namespace ezgs
         bool Update()
         {
             InputKeys();
-            RunSystem();
             Draw();
+            RunSystem();
 
             return is_running;
         }
@@ -133,7 +87,6 @@ namespace ezgs
 
         void RunSystem()
         {
-            // 60FPS制限
             while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticks_count + 16))
                 ;
 
@@ -146,18 +99,16 @@ namespace ezgs
 
         void Draw()
         {
-            glClearColor(bg_color.red, bg_color.green, bg_color.blue, bg_color.alpha);
-            glClear(GL_COLOR_BUFFER_BIT);
+            SDL_SetRenderDrawColor(
+                renderer,
+                bg_color.red,
+                bg_color.green,
+                bg_color.blue,
+                bg_color.alpha
+            );
 
-            glEnable(GL_BLEND);
-            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-            System::shader->SetActive();
-            System::verts->SetActive();
-
-            // Draw
-
-            SDL_GL_SwapWindow(window);
+            SDL_RenderClear(renderer);
+            SDL_RenderPresent(renderer);
         }
 
         void InputKeys()
@@ -213,12 +164,12 @@ namespace ezgs
             return texture;
         }
 
-        void SetBackgroundColor(float R, float G, float B)
+        void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
         {
             bg_color.red = R;
             bg_color.green = G;
             bg_color.blue = B;
-            bg_color.alpha = 1.0f;
+            bg_color.alpha = 255;
         }
     }
 }

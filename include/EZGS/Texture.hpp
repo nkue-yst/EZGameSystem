@@ -7,7 +7,6 @@
 
 #pragma once
 #include <string>
-#include <GL/glew.h>
 
 namespace ezgs
 {
@@ -32,12 +31,6 @@ namespace ezgs
          * @return なし
          */
         void UnloadImage();
-
-        /**
-         * @brief テクスチャをアクティブ状態に
-         * @return なし
-         */
-        void SetActive() { glBindTexture(GL_TEXTURE_2D, texture_id_); }
 
         /* Getter */
         const int GetWidth()  const { return width_; }
