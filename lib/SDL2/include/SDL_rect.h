@@ -28,6 +28,8 @@
 #ifndef SDL_rect_h_
 #define SDL_rect_h_
 
+#pragma warning(disable : 26812)
+
 #include "SDL_stdinc.h"
 #include "SDL_error.h"
 #include "SDL_pixels.h"

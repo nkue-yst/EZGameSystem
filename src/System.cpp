@@ -13,6 +13,9 @@ namespace ezgs
 {
     namespace System
     {
+        // windowに描画するレンダラー
+        SDL_Renderer* renderer;
+
         int CreateWindow()
         {
             if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
@@ -106,9 +109,7 @@ namespace ezgs
                 bg_color.blue,
                 bg_color.alpha
             );
-
             SDL_RenderClear(renderer);
-            SDL_RenderPresent(renderer);
         }
 
         void InputKeys()

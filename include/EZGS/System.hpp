@@ -21,9 +21,6 @@ namespace ezgs
             // 作成したウィンドウを格納
             SDL_Window* window;
 
-            // windowに描画するレンダラー
-            SDL_Renderer* renderer;
-
             // 背景色
             Color bg_color = { 255, 255, 255, 255 };
 
@@ -36,6 +33,8 @@ namespace ezgs
             // メインループの更新条件
             bool is_running = true;
         }
+
+        extern SDL_Renderer* renderer;
 
         /*****
          *** Public Function
