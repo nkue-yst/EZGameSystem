@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/22
+ * @date 2020/08/23
  */
 
 #include <EZGS/Color.hpp>
@@ -22,7 +22,7 @@ namespace ezgs
 
     Font::~Font()
     {
-        TTF_CloseFont(font_type_);
+
     }
 
     int Font::draw(const char* str, int x, int y)
@@ -37,9 +37,10 @@ namespace ezgs
 
         int w, h;
         SDL_QueryTexture(str_texture, NULL, NULL, &w, &h);
-        SDL_Rect str_rect = { 0, 0, w, h };
+        SDL_Rect src_rect = { 0, 0, w, h };
+        SDL_Rect dst_rect = { x, y, w, h };
 
-        SDL_RenderCopy(System::renderer, str_texture, &str_rect, &str_rect);
+        SDL_RenderCopy(System::renderer, str_texture, &src_rect, &dst_rect);
         SDL_RenderPresent(System::renderer);
 
         SDL_DestroyTexture(str_texture);

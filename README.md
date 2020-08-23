@@ -1,3 +1,3 @@
-使用方法はこちら
-↓
+使用方法はこちら  
+↓  
 https://github.com/nkue-yst/EZGameSystem/wiki
