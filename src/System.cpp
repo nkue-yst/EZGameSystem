@@ -1,6 +1,6 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/21
+ * @date 2020/08/24
  */
 
 #include <EZGS/System.hpp>
@@ -102,6 +102,8 @@ namespace ezgs
 
         void Draw()
         {
+            SDL_RenderPresent(renderer);
+
             SDL_SetRenderDrawColor(
                 renderer,
                 bg_color.red,
