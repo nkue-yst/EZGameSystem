@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/23
+ * @date 2020/08/24
  */
 
 #include <EZGS/Color.hpp>
@@ -41,7 +41,6 @@ namespace ezgs
         SDL_Rect dst_rect = { x, y, w, h };
 
         SDL_RenderCopy(System::renderer, str_texture, &src_rect, &dst_rect);
-        SDL_RenderPresent(System::renderer);
 
         SDL_DestroyTexture(str_texture);
         return 0;
