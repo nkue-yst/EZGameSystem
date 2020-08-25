@@ -2,7 +2,7 @@
  * @file Color.hpp
  * @brief FŠÖ˜A
  * @author Yoshito Nakaue
- * @date 2020/08/21
+ * @date 2020/08/26
  */
 
 
@@ -11,9 +11,11 @@
 
 namespace ezgs
 {
-    struct Color
+    class Color
     {
     public:
+        Color(uint8_t R, uint8_t G, uint8_t B, uint8_t A = 255);
+
         uint8_t red;
         uint8_t green;
         uint8_t blue;

@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App\EZGS_sample.cpp" />
+    <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />

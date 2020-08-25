@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/25
+ * @date 2020/08/26
  */
 
 #include <EZGS/Rectangle.hpp>
@@ -20,13 +20,13 @@ namespace ezgs
 
     }
 
-    void Rect::draw(int x, int y, int width, int height)
+    void Rect::draw(int x, int y, int width, int height, Color color)
     {
         SDL_Surface* sfc;
         SDL_Texture* tex;
 
         sfc = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
-        SDL_FillRect(sfc, NULL, SDL_MapRGB(sfc->format, 255, 0, 0));
+        SDL_FillRect(sfc, NULL, SDL_MapRGB(sfc->format, color.red, color.green, color.blue));
 
         int w, h;
         tex = SDL_CreateTextureFromSurface(System::renderer, sfc);
