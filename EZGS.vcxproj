@@ -14,6 +14,7 @@
     <ClCompile Include="App\EZGS_sample.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\Texture.cpp" />
@@ -23,6 +24,7 @@
     <ClInclude Include="include\EZGS\Color.hpp" />
     <ClInclude Include="include\EZGS\Font.hpp" />
     <ClInclude Include="include\EZGS\Math.hpp" />
+    <ClInclude Include="include\EZGS\Rectangle.hpp" />
     <ClInclude Include="include\EZGS\Scene.hpp" />
     <ClInclude Include="include\EZGS\System.hpp" />
     <ClInclude Include="include\EZGS\Texture.hpp" />
