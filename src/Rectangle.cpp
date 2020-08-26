@@ -6,6 +6,7 @@
 #include <EZGS/Rectangle.hpp>
 #include <EZGS/System.hpp>
 #include <SDL.h>
+#include <SDL2_gfxPrimitives.h>
 
 namespace ezgs
 {
@@ -24,7 +25,13 @@ namespace ezgs
     {
         SDL_Rect dst = { x, y, width, height };
         SDL_SetRenderDrawColor(System::renderer, color.red, color.green, color.blue, color.alpha);
-        SDL_SetRenderDrawBlendMode(System::renderer, SDL_BLENDMODE_BLEND);
         SDL_RenderFillRect(System::renderer, &dst);
+    }
+
+    void Rect::drawFrame(int x, int y, int width, int height, Color color)
+    {
+        SDL_Rect dst = { x, y, width, height };
+        SDL_SetRenderDrawColor(System::renderer, color.red, color.green, color.blue, color.alpha);
+        SDL_RenderDrawRect(System::renderer, &dst);
     }
 }

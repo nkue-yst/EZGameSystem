@@ -1,6 +1,6 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/08/24
+ * @date 2020/08/26
  */
 
 #include <EZGS/System.hpp>
@@ -58,6 +58,8 @@ namespace ezgs
                 -1,
                 SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
             );
+            SDL_SetRenderDrawBlendMode(System::renderer, SDL_BLENDMODE_BLEND);
+
 
             ticks_count = SDL_GetTicks();
 

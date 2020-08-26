@@ -15,6 +15,7 @@ int ezgs_main()
     while (System::Update())
     {
         rect.draw(80, 80, Color(0, 255, 0));
+        rect.drawFrame(80, 80, Color(255, 0, 0));
 
         Rect::draw(50, 50, 50, 50, Color(255, 0, 0, 150));
     }

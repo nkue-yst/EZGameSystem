@@ -79,13 +79,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2_ttf\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2_ttf\include;$(SolutionDir)lib\SDL2_gfx\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2_ttf\lib\x64;$(SolutionDir)lib\SDL2_gfx\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_gfx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -101,7 +101,7 @@ xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\SDL2_ttf.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s /y
-</Command>
+xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -112,15 +112,15 @@ xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s 
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2_ttf\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)lib\SDL2\include;$(SolutionDir)lib\SDL2_image\include;$(SolutionDir)lib\SDL2_ttf\include;$(SolutionDir)lib\SDL2_gfx\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\SDL2\lib\x64;$(SolutionDir)lib\SDL2_image\lib\x64;$(SolutionDir)lib\SDL2_ttf\lib\x64;$(SolutionDir)lib\SDL2_gfx\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_gfx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -136,7 +136,7 @@ xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\SDL2_ttf.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s /y
-</Command>
+xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
