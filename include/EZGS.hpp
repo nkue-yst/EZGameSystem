@@ -1,10 +1,11 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/22
+ * @date 2020/08/27
  */
 
 #pragma once
 #include <EZGS/Color.hpp>
+#include <EZGS/Cursor.hpp>
 #include <EZGS/Font.hpp>
 #include <EZGS/Math.hpp>
 #include <EZGS/Rectangle.hpp>

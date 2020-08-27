@@ -5,7 +5,6 @@
 
 #include <EZGS/System.hpp>
 #include <EZGS/Font.hpp>
-#include <EZGS/Math.hpp>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
