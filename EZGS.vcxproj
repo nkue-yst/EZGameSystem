@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App\EZGS_sample.cpp" />
+    <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Cursor.cpp" />
     <ClCompile Include="src\Font.cpp" />
@@ -23,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGS.hpp" />
+    <ClInclude Include="include\EZGS\Circle.hpp" />
     <ClInclude Include="include\EZGS\Color.hpp" />
     <ClInclude Include="include\EZGS\Cursor.hpp" />
     <ClInclude Include="include\EZGS\Font.hpp" />
