@@ -3806,5 +3806,5 @@ int thickLineRGBA(SDL_Renderer *renderer, Sint16 x1, Sint16 y1, Sint16 x2, Sint1
 	py[3] = (Sint16)(dy2 - nx);
 
 	/* Draw polygon */
-	return filledPolygonRGBA(renderer, px, py, 4, r, g, b, a);
+	return aapolygonRGBA(renderer, px, py, 4, r, g, b, a);
 }
