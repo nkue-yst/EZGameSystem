@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/24
+ * @date 2020/09/04
  */
 
 #include <EZGS/Color.hpp>
@@ -32,7 +32,7 @@ namespace ezgs
         SDL_Color c = { 255, 255, 255 };
 
         str_surface = TTF_RenderUTF8_Blended(font_type_, str, c);
-        str_texture = SDL_CreateTextureFromSurface(System::renderer, str_surface);
+        str_texture = SDL_CreateTextureFromSurface(System::GetSystem()->GetRenderer(), str_surface);
         SDL_FreeSurface(str_surface);
 
         int w, h;
@@ -40,7 +40,7 @@ namespace ezgs
         SDL_Rect src_rect = { 0, 0, w, h };
         SDL_Rect dst_rect = { x, y, w, h };
 
-        SDL_RenderCopy(System::renderer, str_texture, &src_rect, &dst_rect);
+        SDL_RenderCopy(System::GetSystem()->GetRenderer(), str_texture, &src_rect, &dst_rect);
 
         SDL_DestroyTexture(str_texture);
         return 0;

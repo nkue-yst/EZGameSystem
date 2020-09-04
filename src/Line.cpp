@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/29
+ * @date 2020/09/04
  */
 
 #include <EZGS/Line.hpp>
@@ -17,7 +17,7 @@ namespace ezgs
 
     void Line::draw(int x1, int y1, int x2, int y2, int thick, Color color)
     {
-        thickLineRGBA(System::renderer, x1, y1, x2, y2,
+        thickLineRGBA(System::GetSystem()->GetRenderer(), x1, y1, x2, y2,
             thick, color.red, color.green, color.blue, color.alpha);
     }
 }

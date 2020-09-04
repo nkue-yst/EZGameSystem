@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/28
+ * @date 2020/09/04
  */
 
 #include <EZGS/Circle.hpp>
@@ -23,13 +23,13 @@ namespace ezgs
 
     void Circle::draw(int x, int y, int rad_x, int rad_y, Color color)
     {
-        filledEllipseRGBA(System::renderer, x, y, rad_x, rad_y,
+        filledEllipseRGBA(System::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
             color.red, color.green, color.blue, color.alpha);
     }
 
     void Circle::drawFrame(int x, int y, int rad_x, int rad_y, Color color)
     {
-        aaellipseRGBA(System::renderer, x, y, rad_x, rad_y,
+        aaellipseRGBA(System::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
             color.red, color.green, color.blue, color.alpha);
     }
 }
