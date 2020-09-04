@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/21
+ * @date 2020/09/04
  */
 
 #include <EZGS/Scene.hpp>
@@ -12,7 +12,7 @@ namespace ezgs
     {
         void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
         {
-            ezgs::System::SetBackgroundColor(R, G, B);
+            System::GetSystem()->SetBackgroundColor(R, G, B);
         }
     }
 }
