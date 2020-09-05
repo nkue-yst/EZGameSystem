@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/27
+ * @date 2020/09/05
  */
 
-#include <EZGS/Math.hpp>
+#include <EZGP/Math.hpp>

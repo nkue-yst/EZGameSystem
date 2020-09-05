@@ -2,13 +2,13 @@
  * @file Circle.hpp
  * @brief ‰~ŠÖ˜A
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
 #pragma once
-#include <EZGS/Color.hpp>
+#include <EZGP/Color.hpp>
 
-namespace ezgs
+namespace ezgp
 {
     class Circle
     {

@@ -1,14 +1,14 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/21
+ * @date 2020/09/05
  */
 
-#include <EZGS/Texture.hpp>
+#include <EZGP/Texture.hpp>
 #include <SDL.h>
 #include <SDL_image.h>
 
 
-namespace ezgs
+namespace ezgp
 {
     Texture::Texture()
         :texture_id_(0)

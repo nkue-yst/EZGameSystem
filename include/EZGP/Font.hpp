@@ -2,7 +2,7 @@
  * @file Font.hpp
  * @brief フォント関連
  * @author Yoshito Nakaue
- * @date 2020/08/22
+ * @date 2020/09/05
  */
 
 #pragma once
@@ -10,7 +10,7 @@
 #include <vector>
 #include <SDL_ttf.h>
 
-namespace ezgs
+namespace ezgp
 {
     /**
      * @brief フォント管理クラス

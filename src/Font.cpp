@@ -1,14 +1,14 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS/Color.hpp>
-#include <EZGS/Font.hpp>
-#include <EZGS/System.hpp>
+#include <EZGP/Color.hpp>
+#include <EZGP/Font.hpp>
+#include <EZGP/System.hpp>
 #include <SDL.h>
 
-namespace ezgs
+namespace ezgp
 {
     Font::Font(int size)
         :size_(10)

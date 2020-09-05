@@ -2,13 +2,13 @@
  * @file Rectangle.hpp
  * @brief ’·•ûŒ`ŠÖ˜A
  * @author Yoshito Nakaue
- * @date 2020/08/26
+ * @date 2020/09/05
  */
 
 #pragma once
-#include <EZGS/Color.hpp>
+#include <EZGP/Color.hpp>
 
-namespace ezgs
+namespace ezgp
 {
     class Rect
     {

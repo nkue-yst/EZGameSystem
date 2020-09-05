@@ -2,17 +2,17 @@
  * @file System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
 #pragma once
-#include <EZGS/Color.hpp>
-#include <EZGS/Texture.hpp>
+#include <EZGP/Color.hpp>
+#include <EZGP/Texture.hpp>
 #include <unordered_map>
 #include <vector>
 #include <SDL.h>
 
-namespace ezgs
+namespace ezgp
 {
     class System
     {
@@ -117,11 +117,11 @@ namespace ezgs
     };
 
     // システムを初期化
-    void EZGS_Init();
+    void EZGP_Init();
 
     // システムの更新
     bool Update();
 
     // システムを終了
-    void EZGS_Quit();
+    void EZGP_Quit();
 }

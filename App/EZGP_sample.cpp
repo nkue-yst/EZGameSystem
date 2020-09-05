@@ -1,13 +1,13 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS.hpp>
+#include <EZGP.hpp>
 
-int ezgs_main()
+int ezgp_main()
 {
-    EZGS_Init();
+    EZGP_Init();
 
     while (Update())
     {
@@ -17,6 +17,6 @@ int ezgs_main()
         Line::draw(20, 60, 1260, 700, 50, Color(50, 50, 50));
     }
 
-    EZGS_Quit();
+    EZGP_Quit();
     return 0;
 }

@@ -1,14 +1,14 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS/Rectangle.hpp>
-#include <EZGS/System.hpp>
+#include <EZGP/Rectangle.hpp>
+#include <EZGP/System.hpp>
 #include <SDL.h>
 #include <SDL2_gfxPrimitives.h>
 
-namespace ezgs
+namespace ezgp
 {
     Rect::Rect(int width, int height)
     {

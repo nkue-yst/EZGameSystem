@@ -1,11 +1,11 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/08/26
+ * @date 2020/09/05
  */
 
-#include <EZGS/Color.hpp>
+#include <EZGP/Color.hpp>
 
-namespace ezgs
+namespace ezgp
 {
     Color::Color(uint8_t R, uint8_t G, uint8_t B, uint8_t A)
     {

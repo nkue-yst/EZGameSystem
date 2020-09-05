@@ -1,14 +1,14 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS/System.hpp>
-#include <EZGS/Font.hpp>
+#include <EZGP/System.hpp>
+#include <EZGP/Font.hpp>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
-namespace ezgs
+namespace ezgp
 {
     int System::CreateWindow()
     {
@@ -187,7 +187,7 @@ namespace ezgs
     // インスタンス
     System* System::iSystem = NULL;
 
-    void EZGS_Init()
+    void EZGP_Init()
     {
         System::Create();
         System::GetSystem()->CreateWindow();
@@ -198,7 +198,7 @@ namespace ezgs
         return System::GetSystem()->Update();
     }
 
-    void EZGS_Quit()
+    void EZGP_Quit()
     {
         System::GetSystem()->Quit();
         System::Destroy();

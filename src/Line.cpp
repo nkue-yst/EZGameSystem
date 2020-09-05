@@ -1,13 +1,13 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS/Line.hpp>
-#include <EZGS/System.hpp>
+#include <EZGP/Line.hpp>
+#include <EZGP/System.hpp>
 #include <SDL2_gfxPrimitives.h>
 
-namespace ezgs
+namespace ezgp
 {
     Line::Line(int x1, int y1, int x2, int y2)
     {
