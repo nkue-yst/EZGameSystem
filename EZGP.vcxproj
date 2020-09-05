@@ -102,7 +102,7 @@
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)Resouces" /i /s /y
+      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)App/Resouces" /i /s /y
 xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
@@ -137,7 +137,7 @@ xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Comma
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)Resouces" /i /s /y
+      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)App/Resouces" /i /s /y
 xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y

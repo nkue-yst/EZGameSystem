@@ -1,48 +1,81 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/06
  */
 
+#include "EZGP_System.hpp"
 #include <EZGP/Texture.hpp>
-#include <SDL.h>
 #include <SDL_image.h>
 
 
 namespace ezgp
 {
-    Texture::Texture()
-        :texture_id_(0)
-        , width_(0)
-        , height_(0)
+    Texture::Texture(const char* file_name)
     {
-
+        texture_ = LoadImage(file_name);
     }
 
     Texture::~Texture()
     {
-
+        this->UnloadImage();
     }
 
-    int Texture::LoadImage(const std::string& file_name)
+    void Texture::draw(int x, int y)
     {
-        SDL_Surface* image = IMG_Load(file_name.c_str());
+        SDL_Rect srcrect = { 0, 0, width_, height_ };
+        SDL_Rect dstrect = { x, y, width_, height_ };
+        SDL_RenderCopy(System::GetSystem()->GetRenderer(), texture_, &srcrect, &dstrect);
+    }
+
+    void Texture::resize(int width, int height)
+    {
+        width_ = width;
+        height_ = height;
+    }
+
+    void Texture::resizeAt(int x, int y, int width, int height)
+    {
+        SDL_Rect srcrect = { 0, 0, width_, height_ };
+        SDL_Rect dstrect = { x, y, width, height };
+        SDL_RenderCopy(System::GetSystem()->GetRenderer(), texture_, &srcrect, &dstrect);
+    }
+
+    void Texture::rotateAt(int x, int y, int angle)
+    {
+        SDL_Rect srcrect = { 0, 0, width_, height_ };
+        SDL_Rect dstrect = { x, y, width_, height_ };
+        SDL_RenderCopyEx(
+            System::GetSystem()->GetRenderer(),
+            texture_,
+            &srcrect,
+            &dstrect,
+            angle,
+            NULL,
+            SDL_FLIP_NONE
+        );
+    }
+
+    SDL_Texture* Texture::LoadImage(const char* file_name)
+    {
+        SDL_Surface* image = IMG_Load(file_name);
 
         if (!image)
         {
-            SDL_Log("Failed to load image %s", file_name.c_str());
-            return 1;
+            SDL_Log("Failed to load image %s", file_name);
+            return NULL;
         }
 
         this->width_  = image->w;
         this->height_ = image->h;
 
-
-
+        SDL_Texture* tex = SDL_CreateTextureFromSurface(System::GetSystem()->GetRenderer(), image);
         SDL_FreeSurface(image);
-        return 0;
+
+        return tex;
     }
 
     void Texture::UnloadImage()
     {
+        SDL_DestroyTexture(this->texture_);
     }
 }

@@ -84,7 +84,6 @@ namespace ezgp
 
     void System::Quit()
     {
-        UnloadData();
         SDL_DestroyRenderer(renderer_);
         SDL_DestroyWindow(window_);
         TTF_Quit();
@@ -125,11 +124,11 @@ namespace ezgp
         {
             switch (ev.type)
             {
-                case SDL_QUIT:
-                    is_running_ = false;
-                    break;
-                default:
-                    break;
+            case SDL_QUIT:
+                is_running_ = false;
+                break;
+            default:
+                break;
             }
             break;
         }
@@ -137,38 +136,6 @@ namespace ezgp
         const Uint8* key_state = SDL_GetKeyboardState(NULL);
         if (key_state[SDL_SCANCODE_ESCAPE])
             is_running_ = false;
-    }
-
-    void System::UnloadData()
-    {
-        /* テクスチャを破棄 */
-        for (auto iter : textures_)
-        {
-            iter.second->UnloadImage();
-            delete iter.second;
-        }
-        textures_.clear();
-    }
-
-    Texture* System::GetTexture(const std::string& file_name)
-    {
-        Texture* texture = nullptr;
-
-        auto iter = textures_.find(file_name);
-        if (iter != textures_.end())
-            texture = iter->second;
-        else
-        {
-            texture = new Texture();
-            if (!texture->LoadImage(file_name))
-                textures_.emplace(file_name, texture);
-            else
-            {
-                delete texture;
-                texture = nullptr;
-            }
-        }
-        return texture;
     }
 
     void System::Create()
