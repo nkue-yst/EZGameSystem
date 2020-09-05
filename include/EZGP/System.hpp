@@ -115,13 +115,4 @@ namespace ezgp
         // メインループの更新条件
         bool is_running_ = true;
     };
-
-    // システムを初期化
-    void EZGP_Init();
-
-    // システムの更新
-    bool Update();
-
-    // システムを終了
-    void EZGP_Quit();
 }

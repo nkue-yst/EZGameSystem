@@ -32,7 +32,10 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="App\EZGP_sample.cpp">
-      <Filter>Sample</Filter>
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EZGPmain.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +72,9 @@
     <ClInclude Include="include\EZGP.hpp">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="include\EZGP\EZGPmain.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
@@ -77,7 +83,7 @@
     <Filter Include="Header">
       <UniqueIdentifier>{fac587cd-7446-49d4-9c27-1898782d9ddb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sample">
+    <Filter Include="App">
       <UniqueIdentifier>{a2cac4a1-a6e1-4fad-887d-9eb54ce44c0d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

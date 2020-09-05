@@ -183,24 +183,6 @@ namespace ezgp
         iSystem = NULL;
     }
 
-
     // インスタンス
     System* System::iSystem = NULL;
-
-    void EZGP_Init()
-    {
-        System::Create();
-        System::GetSystem()->CreateWindow();
-    }
-
-    bool Update()
-    {
-        return System::GetSystem()->Update();
-    }
-
-    void EZGP_Quit()
-    {
-        System::GetSystem()->Quit();
-        System::Destroy();
-    }
 }

@@ -15,6 +15,7 @@
     <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Cursor.cpp" />
+    <ClCompile Include="src\EZGPmain.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Line.cpp" />
     <ClCompile Include="src\Math.cpp" />
@@ -28,6 +29,7 @@
     <ClInclude Include="include\EZGP\Circle.hpp" />
     <ClInclude Include="include\EZGP\Color.hpp" />
     <ClInclude Include="include\EZGP\Cursor.hpp" />
+    <ClInclude Include="include\EZGP\EZGPmain.hpp" />
     <ClInclude Include="include\EZGP\Font.hpp" />
     <ClInclude Include="include\EZGP\Line.hpp" />
     <ClInclude Include="include\EZGP\Math.hpp" />
