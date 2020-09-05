@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/06
  */
 
 #include <EZGP.hpp>
@@ -9,12 +9,13 @@ int ezgp_main()
 {
     EZGP_Init();
 
+    Texture tex("App/Resouces/sample.png");
+
     while (Update())
     {
-        Line(20, 20, 1260, 20).draw(1, Color(255, 0, 0));
-        Line(20, 40, 1260, 40).draw(5, Color(0, 255, 0));
-
-        Line::draw(20, 60, 1260, 700, 50, Color(50, 50, 50));
+        tex.draw(20, 20);
+        tex.rotateAt(100, 100, 90);
+        tex.resizeAt(150, 150, 20, 20);
     }
 
     EZGP_Quit();

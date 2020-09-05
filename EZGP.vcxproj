@@ -15,26 +15,30 @@
     <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Cursor.cpp" />
+    <ClCompile Include="src\EZGPmain.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Line.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\System.cpp" />
+    <ClCompile Include="src\EZGP_System.cpp" />
     <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGP.hpp" />
     <ClInclude Include="include\EZGP\Circle.hpp" />
     <ClInclude Include="include\EZGP\Color.hpp" />
     <ClInclude Include="include\EZGP\Cursor.hpp" />
+    <ClInclude Include="include\EZGP\EZGPmain.hpp" />
     <ClInclude Include="include\EZGP\Font.hpp" />
     <ClInclude Include="include\EZGP\Line.hpp" />
     <ClInclude Include="include\EZGP\Math.hpp" />
     <ClInclude Include="include\EZGP\Rectangle.hpp" />
     <ClInclude Include="include\EZGP\Scene.hpp" />
-    <ClInclude Include="include\EZGP\System.hpp" />
     <ClInclude Include="include\EZGP\Texture.hpp" />
+    <ClInclude Include="include\EZGP\Triangle.hpp" />
+    <ClInclude Include="src\EZGP_System.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -98,7 +102,7 @@
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)Resouces" /i /s /y
+      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)App/Resouces" /i /s /y
 xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
@@ -133,7 +137,7 @@ xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Comma
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)Resouces" /i /s /y
+      <Command>xcopy "$(SolutionDir)App\Resouces" "$(OutDir)App/Resouces" /i /s /y
 xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y

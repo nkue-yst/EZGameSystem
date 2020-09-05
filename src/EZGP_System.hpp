@@ -1,5 +1,5 @@
 ﻿/**
- * @file System.hpp
+ * @file EZGP_System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
  * @date 2020/09/05
@@ -8,7 +8,6 @@
 #pragma once
 #include <EZGP/Color.hpp>
 #include <EZGP/Texture.hpp>
-#include <unordered_map>
 #include <vector>
 #include <SDL.h>
 
@@ -84,19 +83,6 @@ namespace ezgp
          */
         void InputKeys();
 
-        /**
-         * @brief データ破棄
-         * @return なし
-         */
-        void UnloadData();
-
-        /**
-         * @brief システムからテクスチャを読み込み・追加
-         * @param file_name 検索ファイル名
-         * @return 検索・追加したテクスチャ
-         */
-        class Texture* GetTexture(const std::string& file_name);
-
         // 作成したウィンドウを格納
         SDL_Window* window_;
 
@@ -109,19 +95,7 @@ namespace ezgp
         // Tickカウンター
         Uint32 ticks_count_;
 
-        // テクスチャ配列
-        std::unordered_map<std::string, class Texture*> textures_;
-
         // メインループの更新条件
         bool is_running_ = true;
     };
-
-    // システムを初期化
-    void EZGP_Init();
-
-    // システムの更新
-    bool Update();
-
-    // システムを終了
-    void EZGP_Quit();
 }
