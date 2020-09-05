@@ -3,7 +3,7 @@
  * @date 2020/09/05
  */
 
-#include <EZGP/System.hpp>
+#include "EZGP_System.hpp"
 #include <EZGP/Font.hpp>
 #include <SDL_image.h>
 #include <SDL_ttf.h>

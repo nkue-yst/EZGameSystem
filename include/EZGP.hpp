@@ -14,6 +14,7 @@
 #include <EZGP/Rectangle.hpp>
 #include <EZGP/Scene.hpp>
 #include <EZGP/Texture.hpp>
+#include <EZGP/Triangle.hpp>
 
 using namespace ezgp;
 #define ezgp_main() main(int argc, char **argv)

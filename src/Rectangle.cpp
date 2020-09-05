@@ -3,8 +3,8 @@
  * @date 2020/09/05
  */
 
+#include "EZGP_System.hpp"
 #include <EZGP/Rectangle.hpp>
-#include <EZGP/System.hpp>
 #include <SDL.h>
 #include <SDL2_gfxPrimitives.h>
 

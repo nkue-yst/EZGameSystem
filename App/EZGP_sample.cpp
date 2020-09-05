@@ -11,10 +11,9 @@ int ezgp_main()
 
     while (Update())
     {
-        Line(20, 20, 1260, 20).draw(1, Color(255, 0, 0));
-        Line(20, 40, 1260, 40).draw(5, Color(0, 255, 0));
+        Triangle(10, 10, 10, 710, 640, 10).draw(Color(255, 0, 0));
 
-        Line::draw(20, 60, 1260, 700, 50, Color(50, 50, 50));
+        Triangle(1270, 710, 1270, 10, 640, 710).drawFrame(Color(0, 0, 255));
     }
 
     EZGP_Quit();

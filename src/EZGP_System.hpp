@@ -1,5 +1,5 @@
 ﻿/**
- * @file System.hpp
+ * @file EZGP_System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
  * @date 2020/09/05

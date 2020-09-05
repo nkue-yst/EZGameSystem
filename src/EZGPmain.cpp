@@ -3,8 +3,8 @@
  * @date 2020/09/05
  */
 
+#include "EZGP_System.hpp"
 #include <EZGP/EZGPmain.hpp>
-#include <EZGP/System.hpp>
 
 namespace ezgp
 {
