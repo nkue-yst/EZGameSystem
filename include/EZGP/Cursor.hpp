@@ -2,13 +2,13 @@
  * @file Cursor.hpp
  * @brief カーソル関連
  * @author Yoshito Nakaue
- * @date 2020/08/27
+ * @date 2020/09/05
  */
 
 #pragma once
-#include <EZGS/Math.hpp>
+#include <EZGP/Math.hpp>
 
-namespace ezgs
+namespace ezgp
 {
     namespace Cursor
     {

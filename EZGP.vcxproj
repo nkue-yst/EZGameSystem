@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="App\EZGS_sample.cpp" />
+    <ClCompile Include="App\EZGP_sample.cpp" />
     <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Cursor.cpp" />
@@ -24,23 +24,23 @@
     <ClCompile Include="src\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\EZGS.hpp" />
-    <ClInclude Include="include\EZGS\Circle.hpp" />
-    <ClInclude Include="include\EZGS\Color.hpp" />
-    <ClInclude Include="include\EZGS\Cursor.hpp" />
-    <ClInclude Include="include\EZGS\Font.hpp" />
-    <ClInclude Include="include\EZGS\Line.hpp" />
-    <ClInclude Include="include\EZGS\Math.hpp" />
-    <ClInclude Include="include\EZGS\Rectangle.hpp" />
-    <ClInclude Include="include\EZGS\Scene.hpp" />
-    <ClInclude Include="include\EZGS\System.hpp" />
-    <ClInclude Include="include\EZGS\Texture.hpp" />
+    <ClInclude Include="include\EZGP.hpp" />
+    <ClInclude Include="include\EZGP\Circle.hpp" />
+    <ClInclude Include="include\EZGP\Color.hpp" />
+    <ClInclude Include="include\EZGP\Cursor.hpp" />
+    <ClInclude Include="include\EZGP\Font.hpp" />
+    <ClInclude Include="include\EZGP\Line.hpp" />
+    <ClInclude Include="include\EZGP\Math.hpp" />
+    <ClInclude Include="include\EZGP\Rectangle.hpp" />
+    <ClInclude Include="include\EZGP\Scene.hpp" />
+    <ClInclude Include="include\EZGP\System.hpp" />
+    <ClInclude Include="include\EZGP\Texture.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{e782713f-a167-4ecd-a4e3-111ad5ee2902}</ProjectGuid>
-    <RootNamespace>EZGS</RootNamespace>
+    <RootNamespace>EZGP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

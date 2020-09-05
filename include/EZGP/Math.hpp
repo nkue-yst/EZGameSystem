@@ -2,12 +2,12 @@
  * @file Math.hpp
  * @brief ŒvZˆ—“™
  * @author Yoshito Nakaue
- * @date 2020/08/27
+ * @date 2020/09/05
  */
 
 #pragma once
 
-namespace ezgs
+namespace ezgp
 {
     struct Vec2
     {

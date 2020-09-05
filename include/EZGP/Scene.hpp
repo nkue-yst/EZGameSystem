@@ -2,13 +2,13 @@
  * @file Scene.hpp
  * @brief ƒV[ƒ“İ’èŠÖ˜A
  * @author Yoshito Nakaue
- * @date 2020/08/21
+ * @date 2020/09/05
  */
 
 #pragma once
 #include <cstdint>
 
-namespace ezgs
+namespace ezgp
 {
     namespace Scene
     {

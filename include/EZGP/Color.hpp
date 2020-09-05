@@ -2,14 +2,14 @@
  * @file Color.hpp
  * @brief êFä÷òA
  * @author Yoshito Nakaue
- * @date 2020/08/29
+ * @date 2020/09/05
  */
 
 
 #pragma once
 #include <cstdint>
 
-namespace ezgs
+namespace ezgp
 {
     struct Color
     {

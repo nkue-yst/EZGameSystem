@@ -1,12 +1,12 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS/Scene.hpp>
-#include <EZGS/System.hpp>
+#include <EZGP/Scene.hpp>
+#include <EZGP/System.hpp>
 
-namespace ezgs
+namespace ezgp
 {
     namespace Scene
     {

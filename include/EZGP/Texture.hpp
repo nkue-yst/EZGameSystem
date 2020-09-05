@@ -2,13 +2,13 @@
  * @file Texture.hpp
  * @brief テクスチャ管理クラス
  * @author Yoshito Nakaue
- * @date 2020/08/13
+ * @date 2020/09/05
  */
 
 #pragma once
 #include <string>
 
-namespace ezgs
+namespace ezgp
 {
     /**
      * @brief テクスチャ管理クラス

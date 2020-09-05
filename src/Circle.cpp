@@ -1,13 +1,13 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/04
+ * @date 2020/09/05
  */
 
-#include <EZGS/Circle.hpp>
-#include <EZGS/System.hpp>
+#include <EZGP/Circle.hpp>
+#include <EZGP/System.hpp>
 #include <SDL2_gfxPrimitives.h>
 
-namespace ezgs
+namespace ezgp
 {
     Circle::Circle(int rad)
     {

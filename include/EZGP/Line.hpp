@@ -2,13 +2,13 @@
  * @file Line.hpp
  * @brief ê¸
  * @author Yoshito Nakaue
- * @date 2020/08/29
+ * @date 2020/09/05
  */
 
 #pragma once
-#include <EZGS/Color.hpp>
+#include <EZGP/Color.hpp>
 
-namespace ezgs
+namespace ezgp
 {
     class Line
     {
