@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="EZGP_source">
+      <UniqueIdentifier>{2dbb186d-a031-4f96-bf80-0f2f1a8907be}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EZGP_sample.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Circle.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Color.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Cursor.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\EZGP_System.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\EZGPmain.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Font.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Line.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Math.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Rectangle.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Scene.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Texture.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\Triangle.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\EZGP\src\EZGP_System.hpp">
+      <Filter>EZGP_source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
