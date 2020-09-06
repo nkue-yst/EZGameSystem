@@ -1,3 +1,4 @@
+.vs/*
 *.user
 Windows_App/.vs
 Windows_App/obj/*
