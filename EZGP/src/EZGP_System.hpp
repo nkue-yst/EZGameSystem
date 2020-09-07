@@ -7,6 +7,7 @@
 
 #pragma once
 #include <EZGP/Color.hpp>
+#include <EZGP/Cursor.hpp>
 #include <EZGP/Texture.hpp>
 #include <vector>
 #include <SDL.h>
@@ -50,6 +51,7 @@ namespace ezgp
         void Quit();
 
         SDL_Renderer* GetRenderer() { return renderer_; }
+
 
         // インスタンスの作成
         static void Create();

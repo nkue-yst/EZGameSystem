@@ -1,9 +1,10 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/07
  */
 
 #include "EZGP_System.hpp"
+#include "SCursor.hpp"
 #include <EZGP/Font.hpp>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -127,6 +128,19 @@ namespace ezgp
             case SDL_QUIT:
                 is_running_ = false;
                 break;
+
+            case SDL_MOUSEBUTTONDOWN:
+                if (ev.button.button == SDL_BUTTON_LEFT)
+                    SCursor::GetCursor()->SetState(Cursor::LEFT_ON);
+                else if (ev.button.button == SDL_BUTTON_RIGHT)
+                    SCursor::GetCursor()->SetState(Cursor::RIGHT_ON);
+                else if (ev.button.button == SDL_BUTTON_MIDDLE)
+                    SCursor::GetCursor()->SetState(Cursor::MIDDLE_ON);
+            break;
+
+            case SDL_MOUSEBUTTONUP:
+                SCursor::GetCursor()->SetState(Cursor::NONE);
+
             default:
                 break;
             }

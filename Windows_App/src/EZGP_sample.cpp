@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/06
+ * @date 2020/09/07
  */
 
 #include <EZGP.hpp>
@@ -9,13 +9,20 @@ int ezgp_main()
 {
     EZGP_Init();
 
-    Texture tex("App/Resouces/sample.png");
+    Font f(50);
+    int state;
 
     while (Update())
     {
-        tex.draw(20, 20);
-        tex.rotateAt(100, 100, 90);
-        tex.resizeAt(150, 150, 20, 20);
+        Scene::SetBackgroundColor(126, 126, 126);
+        state = Cursor::GetState();
+
+        if (state == Cursor::LEFT_ON)
+            f.draw("Left");
+        else if (state == Cursor::RIGHT_ON)
+            f.draw("Right");
+        else if (state == Cursor::MIDDLE_ON)
+            f.draw("Middle");
     }
 
     EZGP_Quit();

@@ -7,9 +7,6 @@ WIndows_App/App/*
 EZGP/App/*
 
 EZGP/.vs
-EZGP/EZGP.sln
-EZGP/EZGP.vcxproj
-EZGP/EZGP.vcxproj.filters
 
 EZGP/obj/*
 EZGP/bin/*
