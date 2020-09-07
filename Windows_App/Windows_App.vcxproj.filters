@@ -22,9 +22,6 @@
     <ClCompile Include="..\EZGP\src\Cursor.cpp">
       <Filter>EZGP_source</Filter>
     </ClCompile>
-    <ClCompile Include="..\EZGP\src\EZGP_System.cpp">
-      <Filter>EZGP_source</Filter>
-    </ClCompile>
     <ClCompile Include="..\EZGP\src\EZGPmain.cpp">
       <Filter>EZGP_source</Filter>
     </ClCompile>
@@ -47,6 +44,9 @@
       <Filter>EZGP_source</Filter>
     </ClCompile>
     <ClCompile Include="..\EZGP\src\Triangle.cpp">
+      <Filter>EZGP_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EZGP\src\EZGP_System.cpp">
       <Filter>EZGP_source</Filter>
     </ClCompile>
   </ItemGroup>

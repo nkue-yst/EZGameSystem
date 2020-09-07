@@ -82,7 +82,6 @@ xcopy "..\EZGP\lib\SDL2_image\lib\x64\libwebp-7.dll" "$(OutDir)"  /i /s /y
 xcopy "..\EZGP\lib\SDL2_image\lib\x64\zlib1.dll" "$(OutDir)"  /i /s /y
 xcopy "..\EZGP\lib\SDL2_ttf\lib\x64\SDL2_ttf.dll" "$(OutDir)"  /i /s /y
 xcopy "..\EZGP\lib\SDL2_ttf\lib\x64\libfreetype-6.dll" "$(OutDir)" /i /s /y
-xcopy "..\EZGP\Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)resouces" "$(OutDir)resouces"  /i /s /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -115,7 +114,6 @@ xcopy "..\EZGP\lib\SDL2_image\lib\x64\libwebp-7.dll" "$(OutDir)"  /i /s /y
 xcopy "..\EZGP\lib\SDL2_image\lib\x64\zlib1.dll" "$(OutDir)"  /i /s /y
 xcopy "..\EZGP\lib\SDL2_ttf\lib\x64\SDL2_ttf.dll" "$(OutDir)"  /i /s /y
 xcopy "..\EZGP\lib\SDL2_ttf\lib\x64\libfreetype-6.dll" "$(OutDir)" /i /s /y
-xcopy "..\EZGP\Font" "$(OutDir)Font" /i /s /y
 xcopy "$(SolutionDir)resouces" "$(OutDir)resouces"  /i /s /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
