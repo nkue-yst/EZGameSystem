@@ -1,9 +1,9 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/08
  */
 
-#include "EZGP_System.hpp"
+#include "SSystem.hpp"
 #include <EZGP/Triangle.hpp>
 #include <SDL2_gfxPrimitives.h>
 
@@ -19,7 +19,7 @@ namespace ezgp
     void Triangle::draw(Color color)
     {
         filledTrigonRGBA(
-            System::GetSystem()->GetRenderer(),
+            SSystem::GetSystem()->GetRenderer(),
             x_[0], y_[0],
             x_[1], y_[1],
             x_[2], y_[2],
@@ -35,7 +35,7 @@ namespace ezgp
     void Triangle::drawFrame(Color color)
     {
         aatrigonRGBA(
-            System::GetSystem()->GetRenderer(),
+            SSystem::GetSystem()->GetRenderer(),
             x_[0], y_[0],
             x_[1], y_[1],
             x_[2], y_[2],

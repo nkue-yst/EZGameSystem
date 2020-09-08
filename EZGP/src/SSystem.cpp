@@ -1,9 +1,9 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/09/07
+ * @date 2020/09/08
  */
 
-#include "EZGP_System.hpp"
+#include "SSystem.hpp"
 #include "SCursor.hpp"
 #include <EZGP/Font.hpp>
 #include <SDL_image.h>
@@ -11,7 +11,7 @@
 
 namespace ezgp
 {
-    int System::CreateWindow()
+    int SSystem::CreateWindow()
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
         {
@@ -61,7 +61,7 @@ namespace ezgp
         return 0;
     }
 
-    bool System::Update()
+    bool SSystem::Update()
     {
         InputKeys();
         Draw();
@@ -70,7 +70,7 @@ namespace ezgp
         return is_running_;
     }
 
-    void System::SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
+    void SSystem::SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
     {
         bg_color_.red = R;
         bg_color_.green = G;
@@ -78,12 +78,12 @@ namespace ezgp
         bg_color_.alpha = 255;
     }
 
-    void System::EndLoop()
+    void SSystem::EndLoop()
     {
         is_running_ = false;
     }
 
-    void System::Quit()
+    void SSystem::Quit()
     {
         SDL_DestroyRenderer(renderer_);
         SDL_DestroyWindow(window_);
@@ -92,7 +92,7 @@ namespace ezgp
         SDL_Quit();
     }
 
-    void System::RunSystem()
+    void SSystem::RunSystem()
     {
         while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticks_count_ + 16))
             ;
@@ -104,7 +104,7 @@ namespace ezgp
         ticks_count_ = SDL_GetTicks();
     }
 
-    void System::Draw()
+    void SSystem::Draw()
     {
         SDL_RenderPresent(renderer_);
 
@@ -118,7 +118,7 @@ namespace ezgp
         SDL_RenderClear(renderer_);
     }
 
-    void System::InputKeys()
+    void SSystem::InputKeys()
     {
         SDL_Event ev;
         while (SDL_PollEvent(&ev))
@@ -152,18 +152,18 @@ namespace ezgp
             is_running_ = false;
     }
 
-    void System::Create()
+    void SSystem::Create()
     {
-        if (!iSystem)
-            iSystem = new System();
+        if (!pSystem)
+            pSystem = new SSystem();
     }
 
-    void System::Destroy()
+    void SSystem::Destroy()
     {
-        delete iSystem;
-        iSystem = NULL;
+        delete pSystem;
+        pSystem = NULL;
     }
 
     // インスタンス
-    System* System::iSystem = NULL;
+    SSystem* SSystem::pSystem = NULL;
 }

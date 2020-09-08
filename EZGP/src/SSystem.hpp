@@ -2,7 +2,7 @@
  * @file EZGP_System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/08
  */
 
 #pragma once
@@ -14,7 +14,7 @@
 
 namespace ezgp
 {
-    class System
+    class SSystem
     {
     public:
         /**
@@ -58,13 +58,13 @@ namespace ezgp
         // インスタンスの破棄
         static void Destroy();
         // インスタンスの取得
-        static System* GetSystem() { return iSystem; }
+        static SSystem* GetSystem() { return pSystem; }
 
     protected:
         // インスタンス
-        static System* iSystem;
+        static SSystem* pSystem;
         // 非公開コンストラクタ
-        System():renderer_(nullptr), ticks_count_(0), window_(nullptr) {}
+        SSystem():renderer_(nullptr), ticks_count_(0), window_(nullptr) {}
 
     private:
         /**
