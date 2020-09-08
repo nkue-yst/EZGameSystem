@@ -3,7 +3,7 @@
  * @date 2020/09/05
  */
 
-#include "EZGP_System.hpp"
+#include "SSystem.hpp"
 #include <EZGP/Color.hpp>
 #include <EZGP/Font.hpp>
 #include <SDL.h>
@@ -32,7 +32,7 @@ namespace ezgp
         SDL_Color c = { 255, 255, 255 };
 
         str_surface = TTF_RenderUTF8_Blended(font_type_, str, c);
-        str_texture = SDL_CreateTextureFromSurface(System::GetSystem()->GetRenderer(), str_surface);
+        str_texture = SDL_CreateTextureFromSurface(SSystem::GetSystem()->GetRenderer(), str_surface);
         SDL_FreeSurface(str_surface);
 
         int w, h;
@@ -40,7 +40,7 @@ namespace ezgp
         SDL_Rect src_rect = { 0, 0, w, h };
         SDL_Rect dst_rect = { x, y, w, h };
 
-        SDL_RenderCopy(System::GetSystem()->GetRenderer(), str_texture, &src_rect, &dst_rect);
+        SDL_RenderCopy(SSystem::GetSystem()->GetRenderer(), str_texture, &src_rect, &dst_rect);
 
         SDL_DestroyTexture(str_texture);
         return 0;

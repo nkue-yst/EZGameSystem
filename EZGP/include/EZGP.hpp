@@ -1,10 +1,10 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/08
  */
 
 #pragma once
-#include <EZGP/EZGPmain.hpp>
+#include <EZGP/Engine.hpp>
 #include <EZGP/Circle.hpp>
 #include <EZGP/Color.hpp>
 #include <EZGP/Cursor.hpp>

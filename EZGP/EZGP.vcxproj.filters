@@ -31,13 +31,13 @@
     <ClCompile Include="App\EZGP_sample.cpp">
       <Filter>App</Filter>
     </ClCompile>
-    <ClCompile Include="src\EZGPmain.cpp">
-      <Filter>Private</Filter>
-    </ClCompile>
     <ClCompile Include="src\Triangle.cpp">
       <Filter>Private</Filter>
     </ClCompile>
-    <ClCompile Include="src\EZGP_System.cpp">
+    <ClCompile Include="src\SSystem.cpp">
+      <Filter>Private</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
       <Filter>Private</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,17 +72,17 @@
     <ClInclude Include="include\EZGP.hpp">
       <Filter>Public</Filter>
     </ClInclude>
-    <ClInclude Include="include\EZGP\EZGPmain.hpp">
-      <Filter>Public</Filter>
-    </ClInclude>
     <ClInclude Include="include\EZGP\Triangle.hpp">
       <Filter>Public</Filter>
     </ClInclude>
-    <ClInclude Include="src\EZGP_System.hpp">
-      <Filter>Private</Filter>
-    </ClInclude>
     <ClInclude Include="src\SCursor.hpp">
       <Filter>Private</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SSystem.hpp">
+      <Filter>Private</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EZGP\Engine.hpp">
+      <Filter>Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

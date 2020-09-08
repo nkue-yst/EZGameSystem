@@ -1,9 +1,9 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/08
  */
 
-#include "EZGP_System.hpp"
+#include "SSystem.hpp"
 #include <EZGP/Circle.hpp>
 #include <SDL2_gfxPrimitives.h>
 
@@ -23,13 +23,13 @@ namespace ezgp
 
     void Circle::draw(int x, int y, int rad_x, int rad_y, Color color)
     {
-        filledEllipseRGBA(System::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
+        filledEllipseRGBA(SSystem::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
             color.red, color.green, color.blue, color.alpha);
     }
 
     void Circle::drawFrame(int x, int y, int rad_x, int rad_y, Color color)
     {
-        aaellipseRGBA(System::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
+        aaellipseRGBA(SSystem::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
             color.red, color.green, color.blue, color.alpha);
     }
 }
