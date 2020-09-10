@@ -5,14 +5,15 @@
 
 #include "SSystem.hpp"
 #include <EZGP/Scene.hpp>
+#include <EZGP/Color.hpp>
 
 namespace ezgp
 {
     namespace Scene
     {
-        void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
+        void SetBackgroundColor(Color color)
         {
-            SSystem::GetSystem()->SetBackgroundColor(R, G, B);
+            SSystem::GetSystem()->SetBackgroundColor(color);
         }
     }
 }

@@ -2,7 +2,7 @@
  * @file Scene.hpp
  * @brief ƒV[ƒ“İ’èŠÖ˜A
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/09/10
  */
 
 #pragma once
@@ -14,11 +14,9 @@ namespace ezgp
     {
         /**
          * @brief ”wŒiF‚ğİ’è
-         * @param R Ô(0~255)
-         * @param G —Î(0~255)
-         * @param B Â(0~255)
+         * @param color ”wŒiF
          * @return ‚È‚µ
          */
-        void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B);
+        void SetBackgroundColor(struct Color color);
     }
 }

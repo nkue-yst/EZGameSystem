@@ -31,12 +31,10 @@ namespace ezgp
 
         /**
          * @brief 背景色を設定 (Scene::SetBackgroundColorから呼び出し)
-         * @param R 赤(0~255)
-         * @param G 緑(0~255)
-         * @param B 青(0~255)
+         * @param Color color
          * @return なし
          */
-        void SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B);
+        void SetBackgroundColor(Color color);
 
         /**
          * @brief is_runningにfalseを代入しメインループを終了する

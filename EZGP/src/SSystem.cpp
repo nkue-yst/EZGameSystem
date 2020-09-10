@@ -70,11 +70,11 @@ namespace ezgp
         return is_running_;
     }
 
-    void SSystem::SetBackgroundColor(uint8_t R, uint8_t G, uint8_t B)
+    void SSystem::SetBackgroundColor(Color color)
     {
-        bg_color_.red = R;
-        bg_color_.green = G;
-        bg_color_.blue = B;
+        bg_color_.red = color.red;
+        bg_color_.green = color.green;
+        bg_color_.blue = color.blue;
         bg_color_.alpha = 255;
     }
 
