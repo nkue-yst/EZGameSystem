@@ -1,10 +1,11 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/09/11
  */
 
 #include "SSystem.hpp"
 #include <EZGP/Rectangle.hpp>
+#include <EZGP/Cursor.hpp>
 #include <SDL.h>
 #include <SDL2_gfxPrimitives.h>
 
