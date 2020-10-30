@@ -2,7 +2,7 @@
  * @file Circle.hpp
  * @brief 円関連
  * @author Yoshito Nakaue
- * @date 2020/09/05
+ * @date 2020/10/31
  */
 
 #pragma once
@@ -14,10 +14,10 @@ namespace ezgp
     {
     public:
         // 正円
-        Circle(int rad);
+        Circle(int x, int y, int rad);
 
         /**
-         * @brief サイズ・座標を指定して楕円を描画する
+         * @brief サイズ・座標を指定して円を描画する
          * @param x x座標
          * @param y y座標
          * @param rad 半径
@@ -30,11 +30,10 @@ namespace ezgp
         }
 
         /**
-         * @brief サイズ・座標を指定して楕円の枠を描画する
+         * @brief サイズ・座標を指定して円の枠を描画する
          * @param x x座標
          * @param y y座標
-         * @param rad_x x方向の半径
-         * @param rad_y y方向の半径
+         * @param rad 半径
          * @param color 色
          * @return なし
          */
@@ -45,7 +44,7 @@ namespace ezgp
 
 
         // 楕円
-        Circle(int rad_x, int rad_y);
+        Circle(int x, int y, int rad_x, int rad_y);
 
         /**
          * @brief サイズ・座標を指定して楕円を描画する
@@ -79,9 +78,9 @@ namespace ezgp
          * @param color 塗りつぶす色
          * @return なし
          */
-        void draw(int x, int y, Color color = Color(0, 0, 0))
+        void draw(Color color = Color(0, 0, 0))
         {
-            draw(x, y, rad_x_, rad_y_, color);
+            draw(x_, y_, rad_x_, rad_y_, color);
         }
 
         /**
@@ -91,12 +90,14 @@ namespace ezgp
          * @param color 塗りつぶす色
          * @return なし
          */
-        void drawFrame(int x, int y, Color color = Color(0, 0, 0))
+        void drawFrame(Color color = Color(0, 0, 0))
         {
-            drawFrame(x, y, rad_x_, rad_y_, color);
+            drawFrame(x_, y_, rad_x_, rad_y_, color);
         }
         
     private:
+        int x_;
+        int y_;
         int rad_x_;
         int rad_y_;
     };

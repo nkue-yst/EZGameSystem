@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/10/31
  */
 
 #include "SSystem.hpp"
@@ -9,14 +9,18 @@
 
 namespace ezgp
 {
-    Circle::Circle(int rad)
+    Circle::Circle(int x, int y, int rad)
     {
+        x_ = x;
+        y_ = y;
         rad_x_ = rad;
         rad_y_ = rad;
     }
 
-    Circle::Circle(int rad_x, int rad_y)
+    Circle::Circle(int x, int y, int rad_x, int rad_y)
     {
+        x_ = x;
+        y_ = y;
         rad_x_ = rad_x;
         rad_y_ = rad_y;
     }

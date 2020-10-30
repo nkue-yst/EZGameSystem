@@ -2,7 +2,7 @@
  * @file Rectangle.hpp
  * @brief 長方形関連
  * @author Yoshito Nakaue
- * @date 2020/09/12
+ * @date 2020/10/31
  */
 
 #pragma once
@@ -13,7 +13,7 @@ namespace ezgp
     class Rect
     {
     public:
-        Rect(int width, int height);
+        Rect(int x, int y, int width, int height);
         ~Rect();
 
         /**
@@ -29,14 +29,12 @@ namespace ezgp
 
         /**
          * @brief 座標を指定して描画する
-         * @param x x座標
-         * @param y y座標
          * @param color 塗りつぶす色
          * @return なし
          */
-        void draw(int x, int y, Color color = Color(0, 0, 0))
+        void draw(Color color = Color(0, 0, 0))
         {
-            draw(x, y, width_, height_, color);
+            draw(x_, y_, width_, height_, color);
         }
 
         /**
@@ -52,17 +50,17 @@ namespace ezgp
 
         /**
          * @brief 座標を指定して枠を描画する
-         * @param x x座標
-         * @param y y座標
          * @param color 塗りつぶす色
          * @return なし
          */
-        void drawFrame(int x, int y, Color color = Color(0, 0, 0))
+        void drawFrame(Color color = Color(0, 0, 0))
         {
-            drawFrame(x, y, width_, height_, color);
+            drawFrame(x_, y_, width_, height_, color);
         }
 
     private:
+        int x_;
+        int y_;
         int width_;
         int height_;
     };
