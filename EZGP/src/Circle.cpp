@@ -5,6 +5,8 @@
 
 #include "SSystem.hpp"
 #include <EZGP/Circle.hpp>
+#include <EZGP/Cursor.hpp>
+#include <cmath>
 #include <SDL2_gfxPrimitives.h>
 
 namespace ezgp
@@ -35,5 +37,20 @@ namespace ezgp
     {
         aaellipseRGBA(SSystem::GetSystem()->GetRenderer(), x, y, rad_x, rad_y,
             color.red, color.green, color.blue, color.alpha);
+    }
+
+    bool Circle::mouseOver()
+    {
+        Vec2 pos = Cursor::Pos();
+        int a = pos.x - x_;
+        int b = pos.y - y_;
+        int c = static_cast<int>(sqrt(a * a + b * b));
+
+        if (c <= rad_x_)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

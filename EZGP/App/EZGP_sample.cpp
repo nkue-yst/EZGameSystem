@@ -9,9 +9,12 @@ int ezgp_main()
 {
     EZGP_Init();
 
+    Rect rect(100, 100, 50, 50);
+    Circle circle(200, 200, 50);
     while (Update())
     {
-        Circle(200, 200, 50).drawFrame();
+        rect.draw(rect.mouseOver() ? Color(100, 100, 100) : Color(200, 200, 200));
+        circle.draw(circle.mouseOver() ? Color(100, 100, 100) : Color(200, 200, 200));
     }
 
     EZGP_Quit();

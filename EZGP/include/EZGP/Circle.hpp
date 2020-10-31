@@ -94,6 +94,12 @@ namespace ezgp
         {
             drawFrame(x_, y_, rad_x_, rad_y_, color);
         }
+
+        /**
+         * @brief マウスが重なっているかを判定
+         * @return 重なっていればtrue, 重なっていなければfalse
+         */
+        bool mouseOver();
         
     private:
         int x_;
