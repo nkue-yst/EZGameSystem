@@ -1,13 +1,13 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/10/31
+ * @date 2020/11/02
  */
 
 #include <EZGP.hpp>
 
 int ezgp_main()
 {
-    EZGP_Init();
+    EZGP_Init(640, 360);
 
     Rect rect(100, 100, 50, 50);
     Circle circle(200, 200, 50);

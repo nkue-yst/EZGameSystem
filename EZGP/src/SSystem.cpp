@@ -1,6 +1,6 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/11/02
  */
 
 #include "SSystem.hpp"
@@ -11,7 +11,7 @@
 
 namespace ezgp
 {
-    int SSystem::CreateWindow()
+    int SSystem::CreateWindow(int win_width, int win_height)
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
         {
@@ -33,12 +33,15 @@ namespace ezgp
             return 1;
         }
 
+        win_width_  = win_width;
+        win_height_ = win_height;
+
         window_ = SDL_CreateWindow(
             "Window Title",
             100,
             100,
-            1280,
-            720,
+            win_width_,
+            win_height_,
             0
         );
 

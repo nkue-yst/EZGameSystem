@@ -2,7 +2,7 @@
  * @file EZGP_System.hpp
  * @brief 描画システム関連
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/11/02
  */
 
 #pragma once
@@ -21,7 +21,7 @@ namespace ezgp
          * @brief 描画システムを初期化、ウィンドウを作成
          * @return 成功時 0、失敗時 1
          */
-        int CreateWindow();
+        int CreateWindow(int win_width, int win_height);
 
         /**
          * @brief メインループでの更新
@@ -61,8 +61,16 @@ namespace ezgp
     protected:
         // インスタンス
         static SSystem* pSystem;
-        // 非公開コンストラクタ
-        SSystem():renderer_(nullptr), ticks_count_(0), window_(nullptr) {}
+
+        // 非公開コンストラクタ(解像度指定)
+        SSystem()
+            :renderer_(nullptr)
+            , win_width_(1280)
+            , win_height_(720)
+            , ticks_count_(0)
+            , window_(nullptr)
+        {
+        }
 
     private:
         /**
@@ -91,6 +99,12 @@ namespace ezgp
 
         // 背景色
         Color bg_color_ = { 255, 255, 255, 255 };
+
+        // ウィンドウ横幅
+        int win_width_;
+
+        // ウィンドウ高さ
+        int win_height_;
 
         // Tickカウンター
         Uint32 ticks_count_;

@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/11/02
  */
 
 #include "SCursor.hpp"
@@ -9,10 +9,10 @@
 
 namespace ezgp
 {
-    void EZGP_Init()
+    void EZGP_Init(int win_width, int win_height)
     {
         SSystem::Create();
-        SSystem::GetSystem()->CreateWindow();
+        SSystem::GetSystem()->CreateWindow(win_width, win_height);
         SCursor::Create();
     }
 
