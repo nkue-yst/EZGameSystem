@@ -123,15 +123,8 @@
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\SDL2_ttf.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
@@ -188,15 +181,8 @@ xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Comma
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libjpeg-9.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\zlib1.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\SDL2_ttf.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_ttf\lib\x64\libfreetype-6.dll"  "$(OutDir)" /i /s /y
-xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
