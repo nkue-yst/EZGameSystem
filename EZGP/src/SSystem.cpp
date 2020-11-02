@@ -1,17 +1,18 @@
 ﻿/**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/11/02
  */
 
 #include "SSystem.hpp"
 #include "SCursor.hpp"
+#include <EZGP/Mouse.hpp>
 #include <EZGP/Font.hpp>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
 namespace ezgp
 {
-    int SSystem::CreateWindow()
+    int SSystem::CreateWindow(int win_width, int win_height)
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
         {
@@ -33,12 +34,15 @@ namespace ezgp
             return 1;
         }
 
+        win_width_  = win_width;
+        win_height_ = win_height;
+
         window_ = SDL_CreateWindow(
             "Window Title",
             100,
             100,
-            1280,
-            720,
+            win_width_,
+            win_height_,
             0
         );
 
@@ -120,6 +124,11 @@ namespace ezgp
 
     void SSystem::InputKeys()
     {
+        // 押下時の反応を初期化
+        MouseLeft.down = false;
+        MouseRight.down = false;
+        MouseMiddle.down = false;
+
         SDL_Event ev;
         while (SDL_PollEvent(&ev))
         {
@@ -131,15 +140,33 @@ namespace ezgp
 
             case SDL_MOUSEBUTTONDOWN:
                 if (ev.button.button == SDL_BUTTON_LEFT)
-                    SCursor::GetCursor()->SetState(Cursor::LEFT_ON);
+                {
+                    if (!MouseLeft.pressed)
+                        MouseLeft.down = true;
+                    MouseLeft.pressed = true;
+                }
                 else if (ev.button.button == SDL_BUTTON_RIGHT)
-                    SCursor::GetCursor()->SetState(Cursor::RIGHT_ON);
+                {
+                    if (!MouseRight.pressed)
+                        MouseRight.down = true;
+                    MouseRight.pressed = true;
+                }
                 else if (ev.button.button == SDL_BUTTON_MIDDLE)
-                    SCursor::GetCursor()->SetState(Cursor::MIDDLE_ON);
-            break;
+                {
+                    if (!MouseMiddle.pressed)
+                        MouseMiddle.down = true;
+                    MouseMiddle.pressed = true;
+                }
+                break;
 
             case SDL_MOUSEBUTTONUP:
-                SCursor::GetCursor()->SetState(Cursor::NONE);
+                if (ev.button.button == SDL_BUTTON_LEFT)
+                    MouseLeft.pressed = false;
+                else if (ev.button.button == SDL_BUTTON_RIGHT)
+                    MouseRight.pressed = false;
+                else if (ev.button.button == SDL_BUTTON_MIDDLE)
+                    MouseMiddle.pressed = false;
+                break;
 
             default:
                 break;

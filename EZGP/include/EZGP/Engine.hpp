@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/11/02
  */
 
 #pragma once
@@ -11,7 +11,7 @@
 namespace ezgp
 {
     // システムを初期化
-    void EZGP_Init();
+    void EZGP_Init(int win_width = 1280, int win_height = 720);
 
     // システムの更新
     bool Update();

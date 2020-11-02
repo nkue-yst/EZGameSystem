@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/10/31
+ * @date 2020/11/02
  */
 
 #include <EZGP.hpp>
@@ -9,12 +9,18 @@ int ezgp_main()
 {
     EZGP_Init();
 
-    Rect rect(100, 100, 50, 50);
-    Circle circle(200, 200, 50);
+    Scene::SetBackgroundColor(Color::BLACK);
+
+    Font f(20);
+    
+    int i = 0;
     while (Update())
     {
-        rect.draw(rect.mouseOver() ? Color(100, 100, 100) : Color(200, 200, 200));
-        circle.draw(circle.mouseOver() ? Color(100, 100, 100) : Color(200, 200, 200));
+        if (MouseLeft.down)
+            std::cout << ++i << std::endl;
+
+        if (MouseLeft.pressed)
+            f.draw("Pressed");
     }
 
     EZGP_Quit();

@@ -23,6 +23,7 @@
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Line.cpp" />
     <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\Mouse.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\SSystem.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="include\EZGP\Font.hpp" />
     <ClInclude Include="include\EZGP\Line.hpp" />
     <ClInclude Include="include\EZGP\Math.hpp" />
+    <ClInclude Include="include\EZGP\Mouse.hpp" />
     <ClInclude Include="include\EZGP\Rectangle.hpp" />
     <ClInclude Include="include\EZGP\Scene.hpp" />
     <ClInclude Include="include\EZGP\Texture.hpp" />
@@ -122,7 +124,6 @@
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
-xcopy "$(SolutionDir)App\Resouces" "$(OutDir)App/Resouces" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
@@ -188,7 +189,6 @@ xcopy "$(SolutionDir)lib\SDL2_gfx\lib\SDL2_gfx.dll"  "$(OutDir)" /i /s /y</Comma
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)Font" "$(OutDir)Font" /i /s /y
-xcopy "$(SolutionDir)App\Resouces" "$(OutDir)App/Resouces" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2\lib\x64\SDL2.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\SDL2_image.dll"  "$(OutDir)" /i /s /y
 xcopy "$(SolutionDir)lib\SDL2_image\lib\x64\libpng16-16.dll"  "$(OutDir)" /i /s /y
