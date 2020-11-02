@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/08
+ * @date 2020/11/02
  */
 
 #pragma once
@@ -11,6 +11,7 @@
 #include <EZGP/Font.hpp>
 #include <EZGP/Line.hpp>
 #include <EZGP/Math.hpp>
+#include <EZGP/Mouse.hpp>
 #include <EZGP/Rectangle.hpp>
 #include <EZGP/Scene.hpp>
 #include <EZGP/Texture.hpp>

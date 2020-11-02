@@ -1,6 +1,6 @@
 /**
  * @author Yoshito Nakaue
- * @date 2020/09/07
+ * @date 2020/11/02
  */
 
 #include "SCursor.hpp"
@@ -18,11 +18,6 @@ namespace ezgp
             Vec2 pos;
             SDL_GetMouseState(&pos.x, &pos.y);
             return pos;
-        }
-
-        int GetState()
-        {
-            return SCursor::GetCursor()->GetState();
         }
     }
 

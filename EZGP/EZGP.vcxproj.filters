@@ -40,6 +40,9 @@
     <ClCompile Include="src\Engine.cpp">
       <Filter>Private</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mouse.cpp">
+      <Filter>Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EZGP\Font.hpp">
@@ -82,6 +85,9 @@
       <Filter>Private</Filter>
     </ClInclude>
     <ClInclude Include="include\EZGP\Engine.hpp">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EZGP\Mouse.hpp">
       <Filter>Public</Filter>
     </ClInclude>
   </ItemGroup>
